@@ -14,65 +14,26 @@
   <link href="https://unpkg.com/aos@next/dist/aos.css" rel="stylesheet" />
 
   <style>
-    html {
-      scroll-behavior: smooth;
-    }
-    body {
-      font-family: "Inter", sans-serif;
-    }
-    /* --- Scrollbar léger --- */
-    ::-webkit-scrollbar {
-      width: 8px;
-    }
-    ::-webkit-scrollbar-track {
-      background: #f1f1f1;
-    }
-    ::-webkit-scrollbar-thumb {
-      background: #999;
-      border-radius: 4px;
-    }
-    ::-webkit-scrollbar-thumb:hover {
-      background: #666;
-    }
-    /* --- Helpers --- */
-    .section-title {
-      @apply text-3xl md:text-4xl font-extrabold text-center mb-12 text-gray-800;
-    }
-    .section-sub {
-      @apply text-center text-lg mb-12 max-w-3xl mx-auto leading-relaxed text-gray-600;
-    }
-    .card {
-      @apply bg-white rounded-2xl shadow-lg p-6 flex flex-col transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 h-full;
-    }
-    .video-container {
-      position: relative;
-      padding-bottom: 56.25%;
-      height: 0;
-      overflow: hidden;
-      border-radius: 0.75rem;
-    }
-    .video-container iframe {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-    }
-    .nav-link {
-      @apply text-gray-600 hover:text-yellow-600 px-3 py-2 rounded-md transition-colors;
-    }
-    .mobile-menu-button {
-      @apply md:hidden p-2 rounded-md text-gray-600 hover:text-yellow-600 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-yellow-500;
-    }
-    .mobile-menu {
-      @apply md:hidden bg-white shadow-lg absolute top-16 inset-x-0 z-40;
-    }
-    .mobile-menu a {
-      @apply block px-6 py-3 text-gray-600 hover:text-yellow-600 hover:bg-gray-50 transition-colors;
-    }
-    /* Gradient title */
-    .gradient-text {
-      @apply bg-gradient-to-r from-yellow-400 via-amber-500 to-orange-500 bg-clip-text text-transparent;
-    }
+    html { scroll-behavior: smooth; }
+    body { font-family: "Inter", sans-serif; }
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #f1f1f1; }
+    ::-webkit-scrollbar-thumb { background: #999; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #666; }
+
+    /* Helpers */
+    .section-title { @apply text-3xl md:text-4xl font-extrabold text-center mb-12 text-gray-800; }
+    .section-sub   { @apply text-center text-lg mb-12 max-w-3xl mx-auto leading-relaxed text-gray-600; }
+    .card          { @apply bg-white rounded-2xl shadow-lg p-6 flex flex-col transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 h-full; }
+    .video-container { position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:0.75rem; }
+    .video-container iframe { position:absolute; inset:0; width:100%; height:100%; }
+    .nav-link { @apply text-gray-600 hover:text-yellow-600 px-3 py-2 rounded-md transition-colors; }
+    .mobile-menu-button { @apply md:hidden p-2 rounded-md text-gray-600 hover:text-yellow-600 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-yellow-500; }
+    .mobile-menu { @apply md:hidden bg-white shadow-lg absolute top-16 inset-x-0 z-40; }
+    .mobile-menu a { @apply block px-6 py-3 text-gray-600 hover:text-yellow-600 hover:bg-gray-50 transition-colors; }
+    .gradient-text { @apply bg-gradient-to-r from-yellow-400 via-amber-500 to-orange-500 bg-clip-text text-transparent; }
+    .text-shadow   { text-shadow:0 2px 4px rgba(0,0,0,0.7); }
   </style>
 </head>
 <body class="bg-gray-100 text-gray-700">
@@ -103,16 +64,22 @@
     </div>
   </header>
 
-  <!-- HERO -->
-  <section id="accueil" class="relative h-[80vh] flex items-center justify-center text-white overflow-hidden">
-    <img src="images/Maison%20en%20fond%20logo%20et%20texte.png" alt="Vue aérienne d'une maison" class="absolute inset-0 w-full h-full object-cover scale-105 lg:scale-100" />
-    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-black/10"></div>
+  <!-- HERO (Amélioré : image non zoomée + overlay + text-shadow) -->
+  <section id="accueil" class="relative min-h-[80vh] flex items-center justify-center text-white overflow-hidden">
+    <!-- Background image & overlay -->
+    <div class="absolute inset-0">
+      <img src="images/Maison%20en%20fond%20logo%20et%20texte.png" alt="Vue aérienne" class="w-full h-full object-cover lg:object-center" />
+      <div class="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
+    </div>
+
+    <!-- Content -->
     <div class="relative z-10 text-center px-6" data-aos="fade-up">
-      <h1 class="gradient-text text-4xl md:text-6xl font-extrabold mb-6">Sublimez vos biens immobiliers depuis le ciel</h1>
-      <p class="max-w-2xl mx-auto text-lg md:text-2xl mb-10">Photos & vidéos drone en province de Liège pour révéler l'histoire de chaque propriété.</p>
+      <h1 class="gradient-text text-shadow text-4xl md:text-6xl font-extrabold mb-6">Sublimez vos biens immobiliers depuis le ciel</h1>
+      <p class="text-shadow max-w-2xl mx-auto text-lg md:text-2xl mb-10">Photos & vidéos drone en province de Liège pour révéler l'histoire de chaque propriété.</p>
       <a href="#services" class="inline-block bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-4 px-10 rounded-lg text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition">Découvrir nos services</a>
     </div>
-    <!-- Décor bas -->
+
+    <!-- Bas décoratif -->
     <svg class="absolute bottom-0 w-full" viewBox="0 0 1440 100" xmlns="http://www.w3.org/2000/svg"><path fill="#f8fafc" d="M0 0h1440v100H0z"/></svg>
   </section>
 
@@ -184,53 +151,49 @@
   <!-- AVANTAGES -->
   <section id="avantages" class="py-20 bg-white" data-aos="fade-up">
     <div class="container mx-auto px-6">
-      <h2 class="section-title gradient-text">Pourquoi choisir un pro certifié ?</h2>
+      <h2 class="section-title gradient-text">Pourquoi choisir un pro certifié ?</h2>
       <div class="max-w-4xl mx-auto space-y-6 bg-yellow-50 border border-yellow-300 rounded-lg p-10 shadow-lg" data-aos="fade-up">
         <div class="flex items-center gap-3">
           <i data-lucide="alert-triangle" class="w-8 h-8 text-yellow-600"></i>
           <h3 class="text-2xl font-semibold text-gray-800">Les risques d'une approche amateur</h3>
         </div>
-        <p>
-          Voler sans autorisation peut mener à des amendes salées, des poursuites et surtout des dégâts d'image. Un incident suffit à ruiner une vente.
-        </p>
+        <p>Voler sans autorisation peut mener à des amendes salées, des poursuites et surtout des dégâts d'image. Un incident suffit à ruiner une vente.</p>
         <div class="flex items-center gap-3 pt-4">
           <i data-lucide="shield-check" class="w-8 h-8 text-green-600"></i>
           <h3 class="text-2xl font-semibold text-gray-800">La sérénité d'un pilote qualifié</h3>
         </div>
-        <p>
-          J'assure l'analyse du site, les autorisations éventuelles (CTR, zones restreintes) et la couverture RC. Votre seul souci : choisir vos images préférées.
-        </p>
+        <p>J'assure l'analyse du site, les autorisations éventuelles (CTR, zones restreintes) et la couverture RC. Votre seul souci : choisir vos images préférées.</p>
       </div>
     </div>
   </section>
 
-  <!-- PORTFOLIO -->
+  <!-- PORTFOLIO (liens YouTube mis à jour) -->
   <section id="portfolio" class="py-20 bg-gray-50" data-aos="fade-up">
     <div class="container mx-auto px-6">
       <h2 class="section-title gradient-text">Réalisations récentes</h2>
       <p class="section-sub">Voyez comment la perspective aérienne change la donne.</p>
 
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10" data-aos="zoom-in-up">
+        <!-- Roloux -->
         <div class="card" data-aos="fade-up" data-aos-delay="50">
-          <h3 class="text-xl font-semibold mb-4 text-gray-800">Maison familiale — Roloux</h3>
-          <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/VIDEO_ID_1" title="Vidéo drone — Roloux" allowfullscreen></iframe>
+          <h3 class="text-xl font-semibold mb-3 text-yellow-600">Vidéo Démo Immobilier : Roloux</h3>
+          <div class="video-container bg-gray-200">
+            <iframe src="https://www.youtube.com/embed/Xd_725E4-qo" title="Roloux" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
           </div>
-          <p class="mt-3 text-sm text-gray-600">Mise en valeur de la propriété et de son jardin paysager.</p>
         </div>
+        <!-- Château -->
         <div class="card" data-aos="fade-up" data-aos-delay="100">
-          <h3 class="text-xl font-semibold mb-4 text-gray-800">Domaine de caractère</h3>
-          <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/VIDEO_ID_2" title="Vidéo drone — Domaine" allowfullscreen></iframe>
+          <h3 class="text-xl font-semibold mb-3 text-yellow-600">Présentation Château</h3>
+          <div class="video-container bg-gray-200">
+            <iframe src="https://www.youtube.com/embed/Src43pJOPro" title="Château" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
           </div>
-          <p class="mt-3 text-sm text-gray-600">Architecture et étendue du domaine sous tous les angles.</p>
         </div>
+        <!-- École -->
         <div class="card" data-aos="fade-up" data-aos-delay="150">
-          <h3 class="text-xl font-semibold mb-4 text-gray-800">Campus éducatif</h3>
-          <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/VIDEO_ID_3" title="Vidéo drone — Campus" allowfullscreen></iframe>
+          <h3 class="text-xl font-semibold mb-3 text-yellow-600">Présentation École</h3>
+          <div class="video-container bg-gray-200">
+            <iframe src="https://www.youtube.com/embed/lCrLfWDZgyw" title="École" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
           </div>
-          <p class="mt-3 text-sm text-gray-600">Infrastructures et cadre environnant mis en lumière.</p>
         </div>
       </div>
 
@@ -245,8 +208,8 @@
   <!-- CONTACT -->
   <section id="contact" class="py-20 bg-white" data-aos="fade-up">
     <div class="container mx-auto px-6">
-      <h2 class="section-title gradient-text">Prêt à décoller ? Parlons-en !</h2>
-      <p class="section-sub">Expliquez-moi votre projet : je reviens vers vous sous 24 h.</p>
+      <h2 class="section-title gradient-text">Prêt à décoller ? Parlons-en !</h2>
+      <p class="section-sub">Expliquez-moi votre projet : je reviens vers vous sous 24 h.</p>
 
       <div class="max-w-2xl mx-auto bg-white p-10 rounded-2xl shadow-2xl" data-aos="zoom-in">
         <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST" class="space-y-6">
