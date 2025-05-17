@@ -21,17 +21,15 @@
         .card { @apply bg-white rounded-lg shadow-lg p-6 transition-transform duration-300 hover:scale-105; }
         .video-container {
             position: relative;
-            padding-bottom: 56.25%;
+            padding-bottom: 56.25%; /* 16:9 */
             height: 0;
             overflow: hidden;
             border-radius: 0.375rem;
         }
         .video-container iframe {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
         }
     </style>
 </head>
@@ -68,17 +66,17 @@
         <h2 class="section-title">Qui sommes-nous ?</h2>
         <div class="md:flex md:items-center md:space-x-8">
             <div class="md:w-1/2 mb-8 md:mb-0">
-                <img src="https://placehold.co/600x400/e2e8f0/cbd5e0?text=Notre+%C3%A9quipe+dynamique" alt="À propos de Liège Real Estate Drones" class="rounded-lg shadow-lg">
+                <img src="https://placehold.co/600x400/e2e8f0/cbd5e0?text=Notre+%C3%A9quipe+dynamique" alt="À propos" class="rounded-lg shadow-lg">
             </div>
             <div class="md:w-1/2">
                 <p class="mb-4 text-lg">
                     Liège Real Estate Drones est votre partenaire privilégié pour la valorisation de biens immobiliers grâce à des prises de vues aériennes exceptionnelles. Nous mettons notre expertise au service du <strong class="text-yellow-600">storytelling immobilier extérieur</strong>.
                 </p>
                 <p class="mb-4">
-                    Nous utilisons le drone <strong class="text-yellow-600">DJI Mini 4 Pro</strong>, un concentré de technologie qui nous permet de capturer des images et vidéos de haute qualité en toute discrétion et conformité, idéal pour mettre en valeur les atouts extérieurs de chaque propriété.
+                    Nous utilisons le drone <strong class="text-yellow-600">DJI Mini 4 Pro</strong>, un concentré de technologie qui nous permet de capturer des images et vidéos de haute qualité en toute discrétion et conformité.
                 </p>
                 <p>
-                    Notre mission est de vous aider à créer un impact émotionnel fort et à présenter votre bien sous son meilleur jour, en soulignant son architecture, son intégration dans l'environnement et son potentiel unique.
+                    Notre mission est de créer un impact émotionnel fort et de présenter chaque bien sous son meilleur jour.
                 </p>
             </div>
         </div>
@@ -90,30 +88,13 @@
         <h2 class="section-title">Nos Services avec le DJI Mini 4 Pro</h2>
         <p class="text-center text-lg mb-12 max-w-3xl mx-auto">Nous nous concentrons exclusivement sur la capture d'images extérieures pour raconter l'histoire de votre propriété.</p>
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div class="card">
-                <h3 class="text-xl font-semibold mb-3 text-yellow-600">Photographies Aériennes HD</h3>
-                <p>Des clichés haute résolution capturant les meilleurs angles, la lumière et les détails de votre bien et de son environnement.</p>
-            </div>
-            <div class="card">
-                <h3 class="text-xl font-semibold mb-3 text-yellow-600">Vidéos Cinématiques 4K</h3>
-                <p>Des séquences fluides et immersives (travelings, panoramiques) pour une narration visuelle captivante de l'extérieur de la propriété.</p>
-            </div>
-            <div class="card">
-                <h3 class="text-xl font-semibold mb-3 text-yellow-600">Mise en Valeur de l'Environnement</h3>
-                <p>Prises de vues soulignant le jardin, le quartier, et les atouts environnants visibles depuis le ciel.</p>
-            </div>
-            <div class="card">
-                <h3 class="text-xl font-semibold mb-3 text-yellow-600">Storytelling Visuel</h3>
-                <p>Nous créons un récit visuel qui met en avant le caractère unique et le potentiel de chaque propriété, uniquement de l'extérieur.</p>
-            </div>
-            <div class="card">
-                <h3 class="text-xl font-semibold mb-3 text-yellow-600">Technologie DJI Mini 4 Pro</h3>
-                <p>Qualité d'image professionnelle, vols sécurisés et discrets, adaptés à tous types d'environnements extérieurs.</p>
-            </div>
-            <div class="card">
-                <h3 class="text-xl font-semibold mb-3 text-yellow-600">Livraison Rapide</h3>
-                <p>Recevez vos photos et vidéos optimisées pour le web et prêtes à l'emploi dans les meilleurs délais.</p>
-            </div>
+            <!-- six cards identiques à la réponse précédente -->
+            <div class="card"><h3 class="text-xl font-semibold mb-3 text-yellow-600">Photographies Aériennes HD</h3><p>Des clichés haute résolution capturant les meilleurs angles.</p></div>
+            <div class="card"><h3 class="text-xl font-semibold mb-3 text-yellow-600">Vidéos Cinématiques 4K</h3><p>Séquences fluides et immersives pour une narration visuelle.</p></div>
+            <div class="card"><h3 class="text-xl font-semibold mb-3 text-yellow-600">Mise en Valeur de l'Environnement</h3><p>Prises de vues soulignant jardin, quartier, atouts environnants.</p></div>
+            <div class="card"><h3 class="text-xl font-semibold mb-3 text-yellow-600">Storytelling Visuel</h3><p>Un récit qui met en avant le caractère unique de chaque propriété.</p></div>
+            <div class="card"><h3 class="text-xl font-semibold mb-3 text-yellow-600">Technologie DJI Mini 4 Pro</h3><p>Qualité d'image pro, vols sécurisés et discrets.</p></div>
+            <div class="card"><h3 class="text-xl font-semibold mb-3 text-yellow-600">Livraison Rapide</h3><p>Photos et vidéos optimisées prêtes à l'emploi.</p></div>
         </div>
     </div>
 </section>
@@ -121,33 +102,43 @@
 <section id="portfolio" class="py-16 bg-white">
     <div class="container mx-auto px-6">
         <h2 class="section-title">Notre Portfolio</h2>
-        <p class="text-center text-lg mb-12 max-w-3xl mx-auto">Découvrez quelques exemples de notre travail et l'impact du storytelling extérieur.</p>
+        <p class="text-center text-lg mb-12 max-w-3xl mx-auto">Découvrez quelques exemples de notre travail.</p>
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 
+            <!-- Roloux -->
             <div class="card">
                 <h3 class="text-xl font-semibold mb-3 text-yellow-600">Vidéo Démo Immobilier : Roloux</h3>
                 <div class="video-container bg-gray-200">
-                    <iframe src="https://www.youtube.com/embed/LSQ_JNUaNYg" title="Vidéo Démo Immobilier : Roloux" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube.com/embed/Xd_725E4-qo" title="Roloux" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen></iframe>
                 </div>
             </div>
 
+            <!-- Château -->
             <div class="card">
                 <h3 class="text-xl font-semibold mb-3 text-yellow-600">Présentation Château</h3>
                 <div class="video-container bg-gray-200">
-                    <iframe src="https://www.youtube.com/embed/z45J3ye_Yi4" title="Présentation Château" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube.com/embed/Src43pJOPro" title="Château" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen></iframe>
                 </div>
             </div>
 
+            <!-- École -->
             <div class="card">
                 <h3 class="text-xl font-semibold mb-3 text-yellow-600">Présentation École</h3>
                 <div class="video-container bg-gray-200">
-                    <iframe src="https://www.youtube.com/embed/0NnWzkQrYrQ" title="Présentation École" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube.com/embed/lCrLfWDZgyw" title="École" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen></iframe>
                 </div>
             </div>
         </div>
 
         <div class="text-center mt-12">
-            <a href="https://www.youtube.com/@RealEstateDrone-f4e" target="_blank" rel="noopener noreferrer" class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition-colors">
+            <a href="https://www.youtube.com/@RealEstateDrone-f4e" target="_blank" rel="noopener noreferrer"
+               class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition-colors">
                 Visitez notre chaîne YouTube @RealEstateDrone-f4e
             </a>
         </div>
@@ -157,35 +148,22 @@
 <section id="contact" class="py-16 bg-gray-50">
     <div class="container mx-auto px-6">
         <h2 class="section-title">Contactez-nous</h2>
-        <p class="text-center text-lg mb-12 max-w-3xl mx-auto">Prêt à donner une nouvelle dimension à la présentation de vos biens ? Parlons de votre projet !</p>
+        <p class="text-center text-lg mb-12 max-w-3xl mx-auto">Prêt à donner une nouvelle dimension à vos biens ? Parlons-en !</p>
         <div class="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-lg">
             <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
-                <div class="mb-4">
-                    <label for="name" class="block text-gray-700 font-medium mb-2">Nom complet</label>
-                    <input type="text" id="name" name="name" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500">
-                </div>
-                <div class="mb-4">
-                    <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
-                    <input type="email" id="email" name="email" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500">
-                </div>
-                <div class="mb-4">
-                    <label for="phone" class="block text-gray-700 font-medium mb-2">Téléphone (Optionnel)</label>
-                    <input type="tel" id="phone" name="phone" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500">
-                </div>
-                <div class="mb-4">
-                    <label for="message" class="block text-gray-700 font-medium mb-2">Votre message</label>
-                    <textarea id="message" name="message" rows="5" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500"></textarea>
-                </div>
-                <div class="text-center">
-                    <button type="submit" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-3 px-8 rounded-lg text-lg transition-colors">Envoyer le message</button>
-                </div>
+                <!-- champs identiques -->
+                <div class="mb-4"><label for="name" class="block text-gray-700 font-medium mb-2">Nom complet</label><input type="text" id="name" name="name" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500"></div>
+                <div class="mb-4"><label for="email" class="block text-gray-700 font-medium mb-2">Email</label><input type="email" id="email" name="email" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500"></div>
+                <div class="mb-4"><label for="phone" class="block text-gray-700 font-medium mb-2">Téléphone (Optionnel)</label><input type="tel" id="phone" name="phone" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500"></div>
+                <div class="mb-4"><label for="message" class="block text-gray-700 font-medium mb-2">Votre message</label><textarea id="message" name="message" rows="5" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500"></textarea></div>
+                <div class="text-center"><button type="submit" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-3 px-8 rounded-lg text-lg transition-colors">Envoyer le message</button></div>
             </form>
             <div class="mt-12 text-center">
-                <p class="text-lg font-medium mb-2">Vous pouvez aussi nous joindre directement :</p>
+                <p class="text-lg font-medium mb-2">Ou contactez directement :</p>
                 <p>Thibault Wislez</p>
-                <p>Email: <a href="mailto:drones.realestate.liege@gmail.com" class="text-yellow-600 hover:underline">drones.realestate.liege@gmail.com</a></p>
-                <p>Téléphone: <a href="tel:0471830636" class="text-yellow-600 hover:underline">0471 83 06 36</a></p>
-                <p>Adresse: Vieille Ruelle 31, 4347 Roloux, Belgique</p>
+                <p>Email : <a href="mailto:drones.realestate.liege@gmail.com" class="text-yellow-600 hover:underline">drones.realestate.liege@gmail.com</a></p>
+                <p>Tél : <a href="tel:0471830636" class="text-yellow-600 hover:underline">0471 83 06 36</a></p>
+                <p>Adresse : Vieille Ruelle 31, 4347 Roloux, Belgique</p>
             </div>
         </div>
     </div>
@@ -201,15 +179,12 @@
 <script>
     // Smooth scrolling
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
+        anchor.addEventListener('click', e => {
             e.preventDefault();
-            const targetElement = document.querySelector(this.getAttribute('href'));
-            if (targetElement) {
-                targetElement.scrollIntoView({ behavior: 'smooth' });
-            }
+            const target = document.querySelector(anchor.getAttribute('href'));
+            if (target) target.scrollIntoView({ behavior: 'smooth' });
         });
     });
-
     // Year in footer
     document.getElementById('currentYear').textContent = new Date().getFullYear();
 </script>
