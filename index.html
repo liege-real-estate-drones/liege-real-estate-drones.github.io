@@ -1,282 +1,319 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Liège Real Estate Drones - Storytelling Immobilier Aérien par Thibault Wislez</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #f1f1f1; }
-        ::-webkit-scrollbar-thumb { background: #888; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #555; }
-        .hero-bg {
-            background-image: url('images/Maison en fond logo et texte.png'); /* Assurez-vous que ce chemin est correct */
-            background-size: cover;
-            background-position: center;
-        }
-        .section-title { @apply text-3xl font-bold text-center mb-10 text-gray-800; }
-        .card { @apply bg-white rounded-xl shadow-xl p-6 transition-all duration-300 hover:shadow-2xl hover:scale-105 flex flex-col h-full; }
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%; /* 16:9 */
-            height: 0;
-            overflow: hidden;
-            border-radius: 0.5rem; 
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
-        }
-        .video-container iframe {
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-        }
-        .service-icon {
-            @apply mx-auto mb-4 text-yellow-600; 
-        }
-        .legal-section { 
-            @apply bg-yellow-50 border-yellow-300 rounded-lg p-8 shadow-lg; 
-        }
-        .legal-section h3 { 
-             @apply text-2xl font-semibold mb-3; 
-        }
-        .mobile-menu-button { @apply md:hidden p-2 rounded-md text-gray-600 hover:text-yellow-600 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-yellow-500; }
-        .mobile-menu { @apply md:hidden bg-white shadow-lg absolute top-16 right-0 left-0 z-40; }
-        .mobile-menu a { @apply block px-6 py-3 text-gray-600 hover:text-yellow-600 hover:bg-gray-50 transition-colors; }
-    </style>
-    <script src="https://cdn.jsdelivr.net/npm/lucide-static@latest/dist/lucide.min.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Photos et vidéos drone pour l'immobilier à Liège. Valorisez vos biens avec un storytelling aérien professionnel signé Thibault Wislez." />
+  <title>Liège Real Estate Drones | Immobilier Aérien à Liège</title>
+
+  <!-- Tailwind / Fonts / Icons -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/lucide-static@latest/dist/lucide.min.js"></script>
+  <!-- AOS (animate on scroll) -->
+  <link href="https://unpkg.com/aos@next/dist/aos.css" rel="stylesheet" />
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: "Inter", sans-serif;
+    }
+    /* --- Scrollbar léger --- */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #999;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #666;
+    }
+    /* --- Helpers --- */
+    .section-title {
+      @apply text-3xl md:text-4xl font-extrabold text-center mb-12 text-gray-800;
+    }
+    .section-sub {
+      @apply text-center text-lg mb-12 max-w-3xl mx-auto leading-relaxed text-gray-600;
+    }
+    .card {
+      @apply bg-white rounded-2xl shadow-lg p-6 flex flex-col transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 h-full;
+    }
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      border-radius: 0.75rem;
+    }
+    .video-container iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .nav-link {
+      @apply text-gray-600 hover:text-yellow-600 px-3 py-2 rounded-md transition-colors;
+    }
+    .mobile-menu-button {
+      @apply md:hidden p-2 rounded-md text-gray-600 hover:text-yellow-600 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-yellow-500;
+    }
+    .mobile-menu {
+      @apply md:hidden bg-white shadow-lg absolute top-16 inset-x-0 z-40;
+    }
+    .mobile-menu a {
+      @apply block px-6 py-3 text-gray-600 hover:text-yellow-600 hover:bg-gray-50 transition-colors;
+    }
+    /* Gradient title */
+    .gradient-text {
+      @apply bg-gradient-to-r from-yellow-400 via-amber-500 to-orange-500 bg-clip-text text-transparent;
+    }
+  </style>
 </head>
 <body class="bg-gray-100 text-gray-700">
-
-<header class="bg-white shadow-md sticky top-0 z-50">
+  <!-- HEADER -->
+  <header class="bg-white/90 backdrop-blur-md shadow-md sticky top-0 z-50 transition-colors">
     <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-        <a href="#accueil" class="flex items-center">
-            <img src="images/Logo Immobilier Liège Drones.png" alt="Logo Liège Real Estate Drones" class="h-12 mr-3">
-            <span class="font-bold text-xl text-gray-800">Liège Real Estate Drones</span>
-        </a>
-        <nav class="hidden md:flex space-x-4">
-            <a href="#accueil" class="text-gray-600 hover:text-yellow-600 transition-colors px-3 py-2 rounded-md">Accueil</a>
-            <a href="#a-propos" class="text-gray-600 hover:text-yellow-600 transition-colors px-3 py-2 rounded-md">À Propos</a>
-            <a href="#services" class="text-gray-600 hover:text-yellow-600 transition-colors px-3 py-2 rounded-md">Services</a>
-            <a href="#avantages" class="text-gray-600 hover:text-yellow-600 transition-colors px-3 py-2 rounded-md">Vos Avantages</a>
-            <a href="#portfolio" class="text-gray-600 hover:text-yellow-600 transition-colors px-3 py-2 rounded-md">Portfolio</a>
-            <a href="#contact" class="text-gray-600 hover:text-yellow-600 transition-colors px-3 py-2 rounded-md">Contact</a>
-        </nav>
-        <div class="md:hidden">
-            <button id="mobile-menu-button" class="mobile-menu-button" aria-label="Menu principal">
-                <i data-lucide="menu" class="w-6 h-6"></i>
-            </button>
-        </div>
+      <a href="#accueil" class="flex items-center gap-3">
+        <img src="images/Logo%20Immobilier%20Li%C3%A8ge%20Drones.png" alt="Liège Real Estate Drones — Logo" class="h-10 md:h-12" />
+        <span class="font-bold text-lg md:text-xl text-gray-800">Liège Real Estate Drones</span>
+      </a>
+      <nav class="hidden md:flex items-center space-x-2 lg:space-x-4">
+        <a href="#accueil" class="nav-link">Accueil</a>
+        <a href="#a-propos" class="nav-link">À propos</a>
+        <a href="#services" class="nav-link">Services</a>
+        <a href="#avantages" class="nav-link">Avantages</a>
+        <a href="#portfolio" class="nav-link">Portfolio</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+      <button id="mobile-menu-button" class="mobile-menu-button" aria-label="Ouvrir le menu"><i data-lucide="menu" class="w-6 h-6"></i></button>
     </div>
     <div id="mobile-menu" class="mobile-menu hidden">
-        <a href="#accueil">Accueil</a>
-        <a href="#a-propos">À Propos</a>
-        <a href="#services">Services</a>
-        <a href="#avantages">Vos Avantages</a>
-        <a href="#portfolio">Portfolio</a>
-        <a href="#contact">Contact</a>
+      <a href="#accueil">Accueil</a>
+      <a href="#a-propos">À propos</a>
+      <a href="#services">Services</a>
+      <a href="#avantages">Avantages</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#contact">Contact</a>
     </div>
-</header>
+  </header>
 
-<main>
-    <section id="accueil" class="hero-bg text-white min-h-[70vh] flex items-center">
-        <div class="bg-black bg-opacity-60 w-full py-20">
-            <div class="container mx-auto px-6 text-center">
-                <h1 class="text-4xl md:text-6xl font-bold mb-6">Révélez l'Âme de Chaque Propriété</h1>
-                <p class="text-lg md:text-2xl mb-10 max-w-3xl mx-auto">Photographie et vidéo par drone à Liège : un storytelling aérien unique pour sublimer vos biens immobiliers.</p>
-                <a href="#services" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-4 px-10 rounded-lg text-lg transition-colors shadow-lg hover:shadow-xl transform hover:scale-105">Découvrir nos solutions</a>
-            </div>
-        </div>
-    </section>
-
-    <section id="a-propos" class="py-16 lg:py-24 bg-white">
-        <div class="container mx-auto px-6">
-            <h2 class="section-title">Thibault Wislez : Votre Expert Drone, Passionné et Certifié</h2>
-            <div class="md:flex md:items-center md:space-x-12">
-                <div class="md:w-2/3">
-                    <p class="mb-6 text-lg leading-relaxed">
-                        Je suis <strong class="text-yellow-600">Thibault Wislez</strong>, le visage derrière Liège Real Estate Drones. Ma passion pour l'immobilier et l'image aérienne se conjugue à une expertise unique : celle de <strong class="text-yellow-600">contrôleur aérien professionnel</strong>. Cette double compétence est votre meilleure garantie pour des prises de vues exceptionnelles, réalisées avec la plus grande rigueur sécuritaire et dans le respect total de la réglementation.
-                    </p>
-                    <p class="mb-6 leading-relaxed">
-                        En tant qu'interlocuteur unique, je m'investis personnellement pour comprendre vos attentes et magnifier chaque bien. Mon but ? Créer un récit visuel extérieur impactant avec le <strong class="text-yellow-600">DJI Mini 4 Pro</strong>, un drone reconnu pour sa discrétion et ses performances d'imagerie.
-                    </p>
-                    <p class="mb-6 leading-relaxed">
-                        Ma connaissance approfondie de l'espace aérien et des procédures de contrôle du trafic (ATC) assure une planification méticuleuse de chaque mission. Je prends en charge l'ensemble des démarches administratives pour des vols légaux et sécurisés.
-                    </p>
-                    <p class="leading-relaxed">
-                        Titulaire de la <strong class="text-yellow-600">licence européenne de pilote de drone EASA (catégories Ouverte A1/A3)</strong> et enregistré comme exploitant UAS sous le numéro <strong class="text-yellow-600">BELvti37e9v4s6ba</strong>, je vous propose un service professionnel, fiable et conforme aux standards les plus élevés.
-                    </p>
-                </div>
-                <div class="md:w-1/3 mt-10 md:mt-0 flex flex-col items-center">
-                    <img src="images/EASA.png" alt="Licence EASA Pilote de Drone Thibault Wislez" class="rounded-lg shadow-xl mb-4 w-full max-w-xs hover:shadow-2xl transition-shadow">
-                    <p class="text-sm text-gray-600 text-center">Licence Pilote EASA A1/A3 : BEL-RP-r5txwf3zvtg3</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="services" class="py-16 lg:py-24 bg-gray-50">
-        <div class="container mx-auto px-6">
-            <h2 class="section-title">Nos Services de Storytelling Aérien avec le DJI Mini 4 Pro</h2>
-            <p class="text-center text-lg mb-12 max-w-3xl mx-auto leading-relaxed">Des prestations sur mesure, conçues en étroite collaboration avec vous, agents immobiliers, pour un impact maximal sur vos annonces.</p>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="card text-center">
-                    <i data-lucide="camera" class="service-icon w-16 h-16"></i>
-                    <h3 class="text-xl font-semibold mb-3 text-yellow-600">Photographies Aériennes HD</h3>
-                    <p class="flex-grow">Clichés haute définition capturant les meilleurs angles, la lumière et l'intégration du bien dans son environnement unique.</p>
-                </div>
-                <div class="card text-center">
-                    <i data-lucide="film" class="service-icon w-16 h-16"></i>
-                    <h3 class="text-xl font-semibold mb-3 text-yellow-600">Vidéos Cinématiques 4K</h3>
-                    <p class="flex-grow">Séquences fluides et immersives créant une narration visuelle extérieure captivante, dynamique et vendeuse.</p>
-                </div>
-                <div class="card text-center">
-                    <i data-lucide="users-round" class="service-icon w-16 h-16"></i>
-                    <h3 class="text-xl font-semibold mb-3 text-yellow-600">Approche Collaborative Personnalisée</h3>
-                    <p class="flex-grow">Nous travaillons main dans la main. Intégration de vos messages clés, de votre identité visuelle (logo) pour un rendu qui vous ressemble.</p>
-                </div>
-                <div class="card text-center">
-                    <i data-lucide="map-pin" class="service-icon w-16 h-16"></i>
-                    <h3 class="text-xl font-semibold mb-3 text-yellow-600">Valorisation de l'Environnement</h3>
-                    <p class="flex-grow">Prises de vues mettant en exergue le jardin, le quartier, la proximité des commodités et les atouts géographiques.</p>
-                </div>
-                 <div class="card text-center">
-                    <i data-lucide="shield-check" class="service-icon w-16 h-16"></i>
-                    <h3 class="text-xl font-semibold mb-3 text-yellow-600">Vols Sécurisés & Réglementaires</h3>
-                    <p class="flex-grow">Opérations avec le DJI Mini 4 Pro (<250g) par un pilote certifié EASA (UAS: BELvti37e9v4s6ba), garantissant sécurité et conformité.</p>
-                </div>
-                <div class="card text-center">
-                    <i data-lucide="rocket" class="service-icon w-16 h-16"></i>
-                    <h3 class="text-xl font-semibold mb-3 text-yellow-600">Livraison Rapide & Optimisée</h3>
-                    <p class="flex-grow">Recevez vos photos et vidéos rapidement, optimisées pour le web et prêtes à dynamiser vos mandats.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <section id="avantages" class="py-16 lg:py-24 bg-white">
-        <div class="container mx-auto px-6">
-            <h2 class="section-title">Pourquoi Choisir un Professionnel Agréé ? Votre Tranquillité d'Esprit.</h2>
-            <div class="max-w-4xl mx-auto">
-                <div class="legal-section"> <div class="flex items-center mb-4">
-                        <i data-lucide="alert-triangle" class="w-8 h-8 mr-3 text-yellow-600"></i>
-                        <h3 class="text-yellow-700">Les Risques d'une Approche Non Professionnelle</h3>
-                    </div>
-                    <p class="mb-6 text-gray-700 leading-relaxed">
-                        L'utilisation d'un drone pour valoriser un bien est une stratégie puissante. Cependant, opérer sans les qualifications et autorisations requises expose à des risques considérables. Un incident (chute de drone, dommages à un véhicule de luxe, ou pire, blessures corporelles) peut entraîner des conséquences juridiques et financières désastreuses pour un opérateur non-conforme. Ces risques sont malheureusement trop souvent sous-estimés.
-                    </p>
-                    <div class="flex items-center mb-4 mt-8">
-                         <i data-lucide="shield-check" class="w-8 h-8 mr-3 text-green-600"></i>
-                        <h3 class="text-green-700">La Sérénité d'un Service Expert</h3>
-                    </div>
-                    <p class="text-gray-700 leading-relaxed">
-                        En me confiant vos prises de vues aériennes, vous choisissez la sérénité. Fort de mon expérience de <strong class="text-yellow-700">contrôleur aérien</strong> et en tant que <strong class="text-yellow-700">pilote de drone certifié EASA</strong>, je gère l'intégralité des aspects réglementaires. Cela inclut une analyse approfondie de chaque zone de vol – vérification des obstacles potentiels (comme les lignes à haute tension), des espaces aériens à statut particulier (zones interdites, dangereuses ou réglementées – P/D/R) et des conditions spécifiques liées à la région d'information de vol de Bruxelles (LFAA). Je m'occupe également des demandes d'autorisations nécessaires, notamment pour les opérations en zone de contrôle d'aérodrome (CTR) ou tout autre espace aérien le requérant. Mon expertise garantit des opérations menées en toute légalité et sécurité, protégeant ainsi votre réputation et vos intérêts.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="portfolio" class="py-16 lg:py-24 bg-gray-50">
-        <div class="container mx-auto px-6">
-            <h2 class="section-title">Découvrez Notre Travail en Images</h2>
-            <p class="text-center text-lg mb-12 max-w-3xl mx-auto leading-relaxed">Quelques exemples concrets de la manière dont nous pouvons transformer la présentation de vos biens.</p>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="card">
-                    <h3 class="text-xl font-semibold mb-4 text-yellow-600">Projet Immobilier Résidentiel - Roloux</h3>
-                    <div class="video-container bg-gray-200">
-                        <iframe src="https://www.youtube.com/embed/VIDEO_ID_X..." title="Vidéo Démo Immobilier : Roloux" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                    </div>
-                     <p class="mt-3 text-sm text-gray-600">Mise en valeur d'une propriété et de son intégration paysagère.</p>
-                </div>
-                <div class="card">
-                    <h3 class="text-xl font-semibold mb-4 text-yellow-600">Valorisation d'un Domaine de Caractère</h3>
-                    <div class="video-container bg-gray-200">
-                        <iframe src="https://www.youtube.com/embed/Src43pJOPro1" title="Présentation Château" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                    </div>
-                    <p class="mt-3 text-sm text-gray-600">Vues aériennes soulignant l'architecture et l'étendue d'un lieu d'exception.</p>
-                </div>
-                <div class="card">
-                    <h3 class="text-xl font-semibold mb-4 text-yellow-600">Perspective Aérienne pour Projet Éducatif</h3>
-                    <div class="video-container bg-gray-200">
-                        <iframe src="https://www.youtube.com/embed/Src43pJOPro2" title="Présentation École" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                    </div>
-                    <p class="mt-3 text-sm text-gray-600">Illustration du cadre et des infrastructures d'un établissement.</p>
-                </div>
-            </div>
-            <div class="text-center mt-16">
-                <a href="https://www.youtube.com/@RealEstateDrone-f4e" target="_blank" rel="noopener noreferrer"
-                   class="bg-red-600 hover:bg-red-700 text-white font-bold py-4 px-10 rounded-lg text-lg transition-colors shadow-lg hover:shadow-xl transform hover:scale-105 inline-flex items-center">
-                   <i data-lucide="youtube" class="w-6 h-6 mr-3"></i>
-                   Voir plus sur YouTube @RealEstateDrone-f4e
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="py-16 lg:py-24 bg-white">
-        <div class="container mx-auto px-6">
-            <h2 class="section-title">Prêt à Sublimer Vos Annonces ? Contactez-moi.</h2>
-            <p class="text-center text-lg mb-12 max-w-3xl mx-auto leading-relaxed">Discutons de votre projet et voyons ensemble comment la vidéo et la photo par drone peuvent dynamiser vos ventes.</p>
-            <div class="max-w-2xl mx-auto bg-white p-8 rounded-xl shadow-2xl">
-                <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
-                    <div class="mb-5"><label for="name" class="block text-gray-800 font-medium mb-2">Nom complet</label><input type="text" id="name" name="name" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-shadow"></div>
-                    <div class="mb-5"><label for="email" class="block text-gray-800 font-medium mb-2">Email</label><input type="email" id="email" name="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-shadow"></div>
-                    <div class="mb-5"><label for="phone" class="block text-gray-800 font-medium mb-2">Téléphone <span class="text-sm text-gray-500">(Optionnel)</span></label><input type="tel" id="phone" name="phone" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-shadow"></div>
-                    <div class="mb-6"><label for="message" class="block text-gray-800 font-medium mb-2">Votre message / Description de votre besoin</label><textarea id="message" name="message" rows="5" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-shadow"></textarea></div>
-                    <div class="text-center"><button type="submit" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-4 px-10 rounded-lg text-lg transition-colors shadow-lg hover:shadow-xl transform hover:scale-105">Envoyer votre demande</button></div>
-                </form>
-                <div class="mt-12 text-center border-t pt-8 border-gray-200">
-                    <p class="text-lg font-medium mb-3 text-gray-800">Ou contactez-moi directement :</p>
-                    <p class="text-gray-700">Thibault Wislez</p>
-                    <p class="text-gray-700">Email : <a href="mailto:drones.realestate.liege@gmail.com" class="text-yellow-600 hover:underline">drones.realestate.liege@gmail.com</a></p>
-                    <p class="text-gray-700">Tél : <a href="tel:+32471830636" class="text-yellow-600 hover:underline">0471 83 06 36</a></p>
-                    <p class="text-gray-700">Basé à Roloux (Liège) - Interventions sur toute la province.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-</main>
-
-<footer class="bg-gray-800 text-white py-10">
-    <div class="container mx-auto px-6 text-center">
-        <p class="mb-2">© <span id="currentYear"></span> Liège Real Estate Drones par Thibault Wislez. Tous droits réservés.</p>
-        <p class="text-sm text-gray-400">Conception web avec passion et précision.</p>
+  <!-- HERO -->
+  <section id="accueil" class="relative h-[80vh] flex items-center justify-center text-white overflow-hidden">
+    <img src="images/Maison%20en%20fond%20logo%20et%20texte.png" alt="Vue aérienne d'une maison" class="absolute inset-0 w-full h-full object-cover scale-105 lg:scale-100" />
+    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-black/10"></div>
+    <div class="relative z-10 text-center px-6" data-aos="fade-up">
+      <h1 class="gradient-text text-4xl md:text-6xl font-extrabold mb-6">Sublimez vos biens immobiliers depuis le ciel</h1>
+      <p class="max-w-2xl mx-auto text-lg md:text-2xl mb-10">Photos & vidéos drone en province de Liège pour révéler l'histoire de chaque propriété.</p>
+      <a href="#services" class="inline-block bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-4 px-10 rounded-lg text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition">Découvrir nos services</a>
     </div>
-</footer>
+    <!-- Décor bas -->
+    <svg class="absolute bottom-0 w-full" viewBox="0 0 1440 100" xmlns="http://www.w3.org/2000/svg"><path fill="#f8fafc" d="M0 0h1440v100H0z"/></svg>
+  </section>
 
-<script>
-    // Initialisation des icônes Lucide
+  <!-- À PROPOS -->
+  <section id="a-propos" class="py-20 bg-white" data-aos="fade-up">
+    <div class="container mx-auto px-6">
+      <h2 class="section-title gradient-text">Un pilote drone certifié, ex‑contrôleur aérien</h2>
+      <div class="md:flex md:items-center md:space-x-12 mt-12">
+        <div class="md:w-2/3 space-y-6 text-lg leading-relaxed" data-aos="fade-right">
+          <p>
+            Je suis <strong class="text-yellow-600">Thibault Wislez</strong>, passionné d'immobilier et d'images aériennes. Mon expérience de <strong class="text-yellow-600">contrôleur aérien</strong> certifie des vols sûrs et créatifs.
+          </p>
+          <p>
+            Avec le <strong class="text-yellow-600">DJI Mini 4 Pro</strong>, je capture photos et vidéos 4K stables, même dans les espaces les plus restreints.
+          </p>
+          <p>
+            Licence <strong class="text-yellow-600">EASA A1/A3</strong> — exploitant UAS <strong class="text-yellow-600">BELvti37e9v4s6ba</strong> : un gage de professionnalisme et de conformité.
+          </p>
+        </div>
+        <div class="md:w-1/3 mt-12 md:mt-0 flex flex-col items-center" data-aos="fade-left">
+          <img src="images/EASA.png" alt="Licence EASA — Thibault Wislez" class="rounded-xl shadow-xl w-full max-w-xs mb-4 hover:shadow-2xl transition" />
+          <span class="text-sm text-gray-600">Licence n° BEL‑RP‑r5txwf3zvtg3</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="py-20 bg-gray-50" data-aos="fade-up">
+    <div class="container mx-auto px-6">
+      <h2 class="section-title gradient-text">Services clé en main</h2>
+      <p class="section-sub">Créons un contenu visuel qui attire, séduit et convertit vos prospects.</p>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" data-aos="zoom-in-up">
+        <div class="card text-center" data-aos="fade-up" data-aos-delay="50">
+          <i data-lucide="camera" class="mx-auto mb-4 w-14 h-14 text-yellow-600"></i>
+          <h3 class="text-xl font-semibold mb-2 text-gray-800">Photos aériennes HD</h3>
+          <p class="flex-grow">Clichés haute définition révélant les plus beaux angles et l'environnement.</p>
+        </div>
+        <div class="card text-center" data-aos="fade-up" data-aos-delay="100">
+          <i data-lucide="film" class="mx-auto mb-4 w-14 h-14 text-yellow-600"></i>
+          <h3 class="text-xl font-semibold mb-2 text-gray-800">Vidéos cinématiques 4K</h3>
+          <p class="flex-grow">Séquences immersives pour une expérience de visite incomparable.</p>
+        </div>
+        <div class="card text-center" data-aos="fade-up" data-aos-delay="150">
+          <i data-lucide="users-round" class="mx-auto mb-4 w-14 h-14 text-yellow-600"></i>
+          <h3 class="text-xl font-semibold mb-2 text-gray-800">Co‑création sur‑mesure</h3>
+          <p class="flex-grow">Votre branding et vos messages intégrés à une narration séduisante.</p>
+        </div>
+        <div class="card text-center" data-aos="fade-up" data-aos-delay="200">
+          <i data-lucide="map-pin" class="mx-auto mb-4 w-14 h-14 text-yellow-600"></i>
+          <h3 class="text-xl font-semibold mb-2 text-gray-800">Mise en valeur du cadre</h3>
+          <p class="flex-grow">Quartier, jardin, commodités : tout ce qui compte pour vos acheteurs.</p>
+        </div>
+        <div class="card text-center" data-aos="fade-up" data-aos-delay="250">
+          <i data-lucide="shield-check" class="mx-auto mb-4 w-14 h-14 text-yellow-600"></i>
+          <h3 class="text-xl font-semibold mb-2 text-gray-800">Sécurité & conformité</h3>
+          <p class="flex-grow">Vols <250 g réalisés par un pilote EASA assuré et expérimenté.</p>
+        </div>
+        <div class="card text-center" data-aos="fade-up" data-aos-delay="300">
+          <i data-lucide="rocket" class="mx-auto mb-4 w-14 h-14 text-yellow-600"></i>
+          <h3 class="text-xl font-semibold mb-2 text-gray-800">Livraison express</h3>
+          <p class="flex-grow">Photos et vidéos optimisées web sous 48 h chrono.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AVANTAGES -->
+  <section id="avantages" class="py-20 bg-white" data-aos="fade-up">
+    <div class="container mx-auto px-6">
+      <h2 class="section-title gradient-text">Pourquoi choisir un pro certifié ?</h2>
+      <div class="max-w-4xl mx-auto space-y-6 bg-yellow-50 border border-yellow-300 rounded-lg p-10 shadow-lg" data-aos="fade-up">
+        <div class="flex items-center gap-3">
+          <i data-lucide="alert-triangle" class="w-8 h-8 text-yellow-600"></i>
+          <h3 class="text-2xl font-semibold text-gray-800">Les risques d'une approche amateur</h3>
+        </div>
+        <p>
+          Voler sans autorisation peut mener à des amendes salées, des poursuites et surtout des dégâts d'image. Un incident suffit à ruiner une vente.
+        </p>
+        <div class="flex items-center gap-3 pt-4">
+          <i data-lucide="shield-check" class="w-8 h-8 text-green-600"></i>
+          <h3 class="text-2xl font-semibold text-gray-800">La sérénité d'un pilote qualifié</h3>
+        </div>
+        <p>
+          J'assure l'analyse du site, les autorisations éventuelles (CTR, zones restreintes) et la couverture RC. Votre seul souci : choisir vos images préférées.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO -->
+  <section id="portfolio" class="py-20 bg-gray-50" data-aos="fade-up">
+    <div class="container mx-auto px-6">
+      <h2 class="section-title gradient-text">Réalisations récentes</h2>
+      <p class="section-sub">Voyez comment la perspective aérienne change la donne.</p>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10" data-aos="zoom-in-up">
+        <div class="card" data-aos="fade-up" data-aos-delay="50">
+          <h3 class="text-xl font-semibold mb-4 text-gray-800">Maison familiale — Roloux</h3>
+          <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/VIDEO_ID_1" title="Vidéo drone — Roloux" allowfullscreen></iframe>
+          </div>
+          <p class="mt-3 text-sm text-gray-600">Mise en valeur de la propriété et de son jardin paysager.</p>
+        </div>
+        <div class="card" data-aos="fade-up" data-aos-delay="100">
+          <h3 class="text-xl font-semibold mb-4 text-gray-800">Domaine de caractère</h3>
+          <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/VIDEO_ID_2" title="Vidéo drone — Domaine" allowfullscreen></iframe>
+          </div>
+          <p class="mt-3 text-sm text-gray-600">Architecture et étendue du domaine sous tous les angles.</p>
+        </div>
+        <div class="card" data-aos="fade-up" data-aos-delay="150">
+          <h3 class="text-xl font-semibold mb-4 text-gray-800">Campus éducatif</h3>
+          <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/VIDEO_ID_3" title="Vidéo drone — Campus" allowfullscreen></iframe>
+          </div>
+          <p class="mt-3 text-sm text-gray-600">Infrastructures et cadre environnant mis en lumière.</p>
+        </div>
+      </div>
+
+      <div class="text-center mt-16" data-aos="fade-up" data-aos-delay="200">
+        <a href="https://www.youtube.com/@RealEstateDrone-f4e" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 bg-red-600 hover:bg-red-700 text-white font-semibold py-4 px-10 rounded-lg text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition">
+          <i data-lucide="youtube" class="w-6 h-6"></i>Voir plus sur YouTube
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="py-20 bg-white" data-aos="fade-up">
+    <div class="container mx-auto px-6">
+      <h2 class="section-title gradient-text">Prêt à décoller ? Parlons-en !</h2>
+      <p class="section-sub">Expliquez-moi votre projet : je reviens vers vous sous 24 h.</p>
+
+      <div class="max-w-2xl mx-auto bg-white p-10 rounded-2xl shadow-2xl" data-aos="zoom-in">
+        <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST" class="space-y-6">
+          <div>
+            <label for="name" class="block text-gray-800 font-medium mb-1">Nom complet*</label>
+            <input type="text" id="name" name="name" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500" />
+          </div>
+          <div>
+            <label for="email" class="block text-gray-800 font-medium mb-1">E-mail*</label>
+            <input type="email" id="email" name="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500" />
+          </div>
+          <div>
+            <label for="phone" class="block text-gray-800 font-medium mb-1">Téléphone</label>
+            <input type="tel" id="phone" name="phone" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500" />
+          </div>
+          <div>
+            <label for="message" class="block text-gray-800 font-medium mb-1">Message*</label>
+            <textarea id="message" name="message" rows="5" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500"></textarea>
+          </div>
+          <div class="pt-2 text-center">
+            <button type="submit" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-4 px-12 rounded-lg text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition">Envoyer</button>
+          </div>
+        </form>
+
+        <div class="mt-12 text-center border-t pt-8 border-gray-200 space-y-1">
+          <p class="text-lg font-medium text-gray-800">Contact direct</p>
+          <p>Thibault Wislez — Roloux (Liège)</p>
+          <p><a href="mailto:drones.realestate.liege@gmail.com" class="text-yellow-600 hover:underline">drones.realestate.liege@gmail.com</a></p>
+          <p><a href="tel:+32471830636" class="text-yellow-600 hover:underline">0471 83 06 36</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-gray-800 text-white py-8">
+    <div class="container mx-auto px-6 text-center space-y-1">
+      <p>© <span id="currentYear"></span> Liège Real Estate Drones — Thibault Wislez</p>
+      <p class="text-xs text-gray-400">Site conçu avec passion et précision ✈️</p>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 600, once: true });
+
+    // Icônes Lucide
     lucide.createIcons();
 
-    // Gestion du menu mobile
-    const mobileMenuButton = document.getElementById('mobile-menu-button');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const navLinks = mobileMenu.querySelectorAll('a'); 
-
-    mobileMenuButton.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
-        const icon = mobileMenuButton.querySelector('i');
-        if (mobileMenu.classList.contains('hidden')) {
-            icon.setAttribute('data-lucide', 'menu');
-        } else {
-            icon.setAttribute('data-lucide', 'x');
-        }
-        lucide.createIcons(); 
+    // Menu mobile
+    const menuBtn = document.getElementById("mobile-menu-button");
+    const mobileMenu = document.getElementById("mobile-menu");
+    menuBtn.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+      const icon = menuBtn.querySelector("i");
+      icon.setAttribute("data-lucide", mobileMenu.classList.contains("hidden") ? "menu" : "x");
+      lucide.createIcons();
     });
+    mobileMenu.querySelectorAll("a").forEach((link) => link.addEventListener("click", () => {
+      mobileMenu.classList.add("hidden");
+      menuBtn.querySelector("i").setAttribute("data-lucide", "menu");
+      lucide.createIcons();
+    }));
 
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            mobileMenu.classList.add('hidden');
-            mobileMenuButton.querySelector('i').setAttribute('data-lucide', 'menu');
-            lucide.createIcons();
-        });
-    });
-
-    document.getElementById('currentYear').textContent = new Date().getFullYear();
-</script>
-
+    // Mise à jour de l'année
+    document.getElementById("currentYear").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
