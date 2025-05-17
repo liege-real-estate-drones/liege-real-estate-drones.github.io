@@ -17,14 +17,16 @@
             background-size: cover;
             background-position: center;
         }
-        .section-title { @apply text-3xl font-bold text-center mb-8 text-gray-800; }
-        .card { @apply bg-white rounded-lg shadow-lg p-6 transition-transform duration-300 hover:scale-105 flex flex-col; }
+        .section-title { @apply text-3xl font-bold text-center mb-10 text-gray-800; } /* Increased mb */
+        .card { 
+            @apply bg-white rounded-xl shadow-lg p-6 flex flex-col text-center transition-all duration-300 ease-in-out hover:shadow-xl hover:-translate-y-1; 
+        }
         .video-container {
             position: relative;
             padding-bottom: 56.25%; /* 16:9 */
             height: 0;
             overflow: hidden;
-            border-radius: 0.375rem;
+            border-radius: 0.375rem; /* rounded-md */
         }
         .video-container iframe {
             position: absolute;
@@ -32,16 +34,22 @@
             width: 100%; height: 100%;
         }
         .service-icon {
-            @apply mx-auto mb-4 text-yellow-600;
+            @apply mx-auto mb-5 text-yellow-500; /* Slightly adjusted color and margin */
         }
-        .legal-section {
-            @apply mt-10 mb-8 p-6 bg-yellow-50 border border-yellow-300 rounded-lg shadow;
+        .legal-section-revised { /* New styling for the legal section */
+            @apply mt-12 mb-12 p-6 bg-slate-50 border border-slate-200 rounded-lg shadow-md max-w-4xl mx-auto;
         }
-        .legal-section h3 {
-            @apply text-xl font-semibold text-yellow-700 mb-3 flex items-center;
+        .legal-section-revised h3 {
+            @apply text-xl font-semibold text-slate-700 mb-3 flex items-center justify-center; /* Centered title */
         }
-        .legal-section p {
-            @apply text-gray-700 text-sm;
+        .legal-section-revised p {
+            @apply text-gray-600 text-base text-left; /* Adjusted text size and alignment */
+        }
+        .card h3 {
+            @apply text-xl font-semibold mb-3 text-gray-700; /* Darker text for card titles */
+        }
+        .card p {
+            @apply text-gray-600 text-sm flex-grow; /* Smaller text for card descriptions, flex-grow for equal height feel */
         }
     </style>
     <script src="https://cdn.jsdelivr.net/npm/lucide-static@latest/dist/lucide.min.js"></script>
@@ -100,54 +108,49 @@
     </div>
 </section>
 
-<section id="services" class="py-16 bg-gray-50">
-    <div class="container mx-auto px-6">
-        <h2 class="section-title">Mes Services avec le DJI Mini 4 Pro</h2>
-        <p class="text-center text-lg mb-6 max-w-3xl mx-auto">Des prestations sur mesure pour un storytelling immobilier extérieur qui fait la différence, en étroite collaboration avec vous, agents immobiliers.</p>
+<section id="services" class="py-16 bg-slate-100"> <div class="container mx-auto px-6">
+        <h2 class="section-title">Valorisation Immobilière par Drone : Mon Engagement Qualité</h2>
+        <p class="text-center text-lg text-gray-700 mb-10 max-w-3xl mx-auto">Je vous propose des solutions de captation aérienne conçues pour sublimer vos biens, captiver vos clients et accélérer vos ventes. Chaque prestation est personnalisée, en étroite collaboration avec vous, pour un impact visuel maximal et une conformité irréprochable.</p>
         
-        <div class="legal-section max-w-4xl mx-auto">
+        <div class="legal-section-revised">
             <h3>
-                <i data-lucide="alert-triangle" class="w-6 h-6 mr-2"></i>
-                Votre Tranquillité d'Esprit : Pourquoi faire appel à un professionnel agréé ?
+                <i data-lucide="shield-alert" class="w-7 h-7 mr-3 text-blue-600"></i> Optez pour la Sérénité : L'Importance d'un Professionnel Certifié
             </h3>
-            <p class="mb-2">
-                Utiliser un drone pour valoriser un bien est une excellente idée, mais se lancer sans les qualifications et autorisations requises comporte des risques significatifs. Un incident (chute du drone, dommages matériels sur un véhicule de luxe, ou pire, dommages corporels) peut rapidement entraîner des complications légales et financières importantes pour l'opérateur non-conforme. Ces risques sont malheureusement souvent sous-estimés.
+            <p class="mb-3">
+                La valorisation de biens par drone est un outil puissant. Toutefois, opérer sans les qualifications et autorisations requises peut entraîner des non-conformités réglementaires et engager votre responsabilité en cas d'incident. Une démarche professionnelle est donc cruciale pour sécuriser votre activité et votre image.
             </p>
             <p>
-                En me confiant vos prises de vues aériennes, vous optez pour la sérénité. Fort de mon expérience de <strong class="text-yellow-700">contrôleur aérien</strong> et en tant que <strong class="text-yellow-700">pilote de drone certifié EASA</strong>, je gère l'intégralité des aspects réglementaires : analyse de la zone de vol, demandes d'autorisations spécifiques si nécessaires, et respect scrupuleux des règles de l'air. Mon expertise garantit des opérations menées en toute légalité et sécurité, protégeant ainsi votre réputation et vos intérêts.
+                En me confiant vos prises de vues, vous choisissez la tranquillité d'esprit. Fort de mon expertise de <strong class="text-blue-700">contrôleur aérien</strong> et en tant que <strong class="text-blue-700">pilote de drone certifié EASA</strong>, je gère l'intégralité des aspects réglementaires (analyse de zone, autorisations si nécessaires, respect des règles de l'air). Je vous assure des prestations conformes et sécurisées, protégeant ainsi votre réputation et vos intérêts.
             </p>
         </div>
 
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div class="card text-center">
+            <div class="card">
                 <i data-lucide="camera" class="service-icon w-12 h-12"></i>
-                <h3 class="text-xl font-semibold mb-3 text-yellow-600">Photographies Aériennes HD</h3>
-                <p>Des clichés haute résolution valorisant les meilleurs angles et l'intégration du bien dans son environnement.</p>
+                <h3>Photographies Aériennes HD</h3>
+                <p>Clichés haute définition révélant les perspectives les plus valorisantes et l'intégration parfaite du bien dans son cadre.</p>
             </div>
-            <div class="card text-center">
-                <i data-lucide="video" class="service-icon w-12 h-12"></i>
-                <h3 class="text-xl font-semibold mb-3 text-yellow-600">Vidéos Cinématiques 4K</h3>
-                <p>Séquences fluides et immersives pour une narration visuelle extérieure captivante et dynamique.</p>
+            <div class="card">
+                <i data-lucide="film" class="service-icon w-12 h-12"></i> <h3>Vidéos Cinématiques 4K</h3>
+                <p>Vidéos 4K fluides et immersives, créant une narration visuelle extérieure dynamique et engageante pour vos futurs acquéreurs.</p>
             </div>
-            <div class="card text-center">
-                <i data-lucide="users-2" class="service-icon w-12 h-12"></i>
-                <h3 class="text-xl font-semibold mb-3 text-yellow-600">Approche Collaborative & Personnalisée</h3>
-                <p>Je travaille main dans la main avec vous, agents immobiliers. Intégration de vos consignes spécifiques (textes, narration) et de votre logo d'agence pour un résultat qui vous ressemble.</p>
+            <div class="card">
+                <i data-lucide="handshake" class="service-icon w-12 h-12"></i> <h3>Collaboration Sur Mesure</h3>
+                <p>Une collaboration étroite pour un service personnalisé : j'intègre vos directives (points clés, narration) et votre identité visuelle (logo) pour un rendu final qui vous correspond.</p>
             </div>
-            <div class="card text-center">
+            <div class="card">
                 <i data-lucide="map-pin" class="service-icon w-12 h-12"></i>
-                <h3 class="text-xl font-semibold mb-3 text-yellow-600">Mise en Valeur de l'Environnement</h3>
-                <p>Prises de vues soulignant le jardin, le quartier, la proximité des commodités et les atouts environnants.</p>
+                <h3>Valorisation de l'Environnement</h3>
+                <p>Mise en lumière de l'environnement direct : jardin, quartier, accès et points d'intérêt, pour une présentation complète des atouts extérieurs.</p>
             </div>
-            <div class="card text-center">
+            <div class="card">
                 <i data-lucide="shield-check" class="service-icon w-12 h-12"></i>
-                <h3 class="text-xl font-semibold mb-3 text-yellow-600">Vols Sécurisés & Conformes</h3>
-                <p>Utilisation du DJI Mini 4 Pro (&lt;250g), opéré par un pilote certifié EASA (exploitant UAS: BELvti37e9v4s6ba), garantissant sécurité et respect de la réglementation.</p>
+                <h3>Vols Sécurisés & Réglementaires</h3>
+                <p>Opérations conformes avec le DJI Mini 4 Pro (<250g). Pilote certifié EASA (Exploitant UAS : BELvti37e9v4s6ba), je garantis des vols sécurisés.</p>
             </div>
-            <div class="card text-center">
-                <i data-lucide="rocket" class="service-icon w-12 h-12"></i>
-                <h3 class="text-xl font-semibold mb-3 text-yellow-600">Livraison Rapide & Optimisée</h3>
-                <p>Recevez rapidement vos photos et vidéos, optimisées pour le web et prêtes à être intégrées à vos annonces.</p>
+            <div class="card">
+                <i data-lucide="zap" class="service-icon w-12 h-12"></i> <h3>Livraison Efficace & Optimisée</h3>
+                <p>Livraison rapide de vos médias, optimisés pour une intégration web immédiate et une qualité d'affichage optimale sur toutes plateformes.</p>
             </div>
         </div>
     </div>
@@ -156,11 +159,11 @@
 <section id="portfolio" class="py-16 bg-white">
     <div class="container mx-auto px-6">
         <h2 class="section-title">Mon Portfolio</h2>
-        <p class="text-center text-lg mb-12 max-w-3xl mx-auto">Découvrez quelques exemples de mon travail.</p>
+        <p class="text-center text-lg text-gray-700 mb-12 max-w-3xl mx-auto">Découvrez quelques exemples de mon travail.</p>
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 
             <div class="card">
-                <h3 class="text-xl font-semibold mb-3 text-yellow-600">Vidéo Démo Immobilier : Roloux</h3>
+                <h3 class="text-xl font-semibold mb-3 text-gray-700">Vidéo Démo Immobilier : Roloux</h3>
                 <div class="video-container bg-gray-200">
                     <iframe src="https://www.youtube.com/embed/Xd_725E4-qo" title="Roloux" frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -169,7 +172,7 @@
             </div>
 
             <div class="card">
-                <h3 class="text-xl font-semibold mb-3 text-yellow-600">Présentation Château</h3>
+                <h3 class="text-xl font-semibold mb-3 text-gray-700">Présentation Château</h3>
                 <div class="video-container bg-gray-200">
                     <iframe src="https://www.youtube.com/embed/Src43pJOPro" title="Château" frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -178,7 +181,7 @@
             </div>
 
             <div class="card">
-                <h3 class="text-xl font-semibold mb-3 text-yellow-600">Présentation École</h3>
+                <h3 class="text-xl font-semibold mb-3 text-gray-700">Présentation École</h3>
                 <div class="video-container bg-gray-200">
                     <iframe src="https://www.youtube.com/embed/lCrLfWDZgyw" title="École" frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -196,12 +199,10 @@
     </div>
 </section>
 
-<section id="contact" class="py-16 bg-gray-50">
-    <div class="container mx-auto px-6">
+<section id="contact" class="py-16 bg-slate-100"> <div class="container mx-auto px-6">
         <h2 class="section-title">Contactez-moi</h2>
-        <p class="text-center text-lg mb-12 max-w-3xl mx-auto">Prêt à donner une nouvelle dimension à vos biens ? Parlons-en !</p>
-        <div class="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-lg">
-            <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+        <p class="text-center text-lg text-gray-700 mb-12 max-w-3xl mx-auto">Prêt à donner une nouvelle dimension à vos biens ? Parlons de votre projet !</p>
+        <div class="max-w-2xl mx-auto bg-white p-8 rounded-xl shadow-lg"> <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
                 <div class="mb-4"><label for="name" class="block text-gray-700 font-medium mb-2">Nom complet</label><input type="text" id="name" name="name" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500"></div>
                 <div class="mb-4"><label for="email" class="block text-gray-700 font-medium mb-2">Email</label><input type="email" id="email" name="email" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500"></div>
                 <div class="mb-4"><label for="phone" class="block text-gray-700 font-medium mb-2">Téléphone (Optionnel)</label><input type="tel" id="phone" name="phone" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500"></div>
