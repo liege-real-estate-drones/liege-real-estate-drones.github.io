@@ -106,10 +106,11 @@
             width: 100%;
             height: 100%;
             overflow-y: auto;
-            padding-top: 4rem;
+            padding-top: 5rem;
             opacity: 0;
             transform: translateY(20px);
             display: none;
+            background-color: inherit;
         }
 
         section.active {
@@ -133,6 +134,25 @@
             overflow-y: hidden;
             position: relative;
             height: 100vh;
+            background-color: #f3f4f6;
+        }
+
+        /* Ajustements pour le footer */
+        footer {
+            position: relative;
+            z-index: 1000;
+        }
+
+        /* Ajustements pour les transitions */
+        .section-content {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        }
+
+        section.active .section-content {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         /* Media query pour les écrans plus grands pour l'image héros */
