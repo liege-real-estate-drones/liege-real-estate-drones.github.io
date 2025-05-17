@@ -4,7 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Liège Real Estate Drones - Storytelling Immobilier Extérieur par Thibault Wislez</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/png" href="images/Logo Immobilier Liège Drones.png">
+    <script src="https://cdn.tailwindcss.com" defer></script>
+    <link rel="preload" href="images/Maison en fond logo et texte.png" as="image">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <meta name="description" content="Services de drones spécialisés dans le storytelling immobilier extérieur à Liège par Thibault Wislez. Photographie et vidéo aérienne professionnelle pour l'immobilier.">
+    <meta name="keywords" content="drone immobilier, photographie aérienne, vidéo drone, Liège, storytelling immobilier, Thibault Wislez">
+    <meta property="og:title" content="Liège Real Estate Drones - Storytelling Immobilier Extérieur">
+    <meta property="og:description" content="Services de drones spécialisés dans le storytelling immobilier extérieur à Liège. Photographie et vidéo aérienne professionnelle.">
+    <meta property="og:type" content="website">
+    <meta name="robots" content="index, follow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body { 
@@ -29,10 +40,29 @@
         }
 
         .section-title { @apply text-2xl md:text-3xl font-bold text-center mb-10 md:mb-12 text-gray-800; } /* Taille de police ajustée pour mobile */
-        .card { 
-            /* Ombre par défaut augmentée à shadow-xl */
-            @apply bg-white rounded-xl shadow-xl p-6 md:p-8 flex flex-col text-center transition-all duration-300 ease-in-out hover:shadow-2xl hover:-translate-y-2; 
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
+
+        .animate-fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+            opacity: 0;
+        }
+
+        .card { 
+            @apply bg-white rounded-xl shadow-xl p-6 md:p-8 flex flex-col text-center transition-all duration-300 ease-in-out hover:shadow-2xl hover:-translate-y-2; 
+            animation: fadeIn 0.8s ease-out forwards;
+            opacity: 0;
+        }
+
+        .card:nth-child(1) { animation-delay: 0.1s; }
+        .card:nth-child(2) { animation-delay: 0.2s; }
+        .card:nth-child(3) { animation-delay: 0.3s; }
+        .card:nth-child(4) { animation-delay: 0.4s; }
+        .card:nth-child(5) { animation-delay: 0.5s; }
+        .card:nth-child(6) { animation-delay: 0.6s; }
         .video-container {
             position: relative;
             padding-bottom: 56.25%; /* 16:9 */
@@ -74,11 +104,11 @@
             }
         }
     </style>
-    <script src="https://cdn.jsdelivr.net/npm/lucide-static@latest/dist/lucide.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
-<body class="bg-gray-100 text-gray-700">
+<body class="bg-gray-100 text-gray-700 overflow-x-hidden">
 
-<header class="bg-white shadow-lg sticky top-0 z-50">
+<header class="bg-white/95 backdrop-blur-sm shadow-lg sticky top-0 z-50 transition-all duration-300">
     <div class="container mx-auto px-4 md:px-6 py-4 md:py-5 flex justify-between items-center">
         <a href="#accueil" class="flex items-center">
             <img src="images/Logo Immobilier Liège Drones.png" alt="Logo Liège Real Estate Drones" class="h-10 md:h-14 mr-2 md:mr-4">
@@ -95,12 +125,12 @@
 </header>
 
 <section id="accueil">
-    <div class="hero-image-container">
+    <div class="hero-image-container animate-fade-in" style="animation-delay: 0.2s">
     </div>
     <div class="hero-text-container">
         <div class="container mx-auto px-4 md:px-6">
-            <h1 class="text-3xl md:text-5xl font-bold mb-5 md:mb-6 text-gray-800">Révélez l'histoire unique de votre bien immobilier</h1>
-            <p class="text-base md:text-xl text-gray-700 mb-8 md:mb-10 max-w-2xl mx-auto leading-relaxed">Services de drones spécialisés dans le storytelling immobilier extérieur à Liège.</p>
+            <h1 class="text-3xl md:text-5xl font-bold mb-5 md:mb-6 text-gray-800 animate-fade-in" style="animation-delay: 0.4s">Révélez l'histoire unique de votre bien immobilier</h1>
+            <p class="text-base md:text-xl text-gray-700 mb-8 md:mb-10 max-w-2xl mx-auto leading-relaxed animate-fade-in" style="animation-delay: 0.6s">Services de drones spécialisés dans le storytelling immobilier extérieur à Liège.</p>
             <a href="#services" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-3 px-8 md:py-4 md:px-10 rounded-lg text-lg md:text-xl shadow-md hover:shadow-lg transition-all duration-300">Découvrir mes services</a>
         </div>
     </div>
@@ -236,11 +266,31 @@
         <p class="text-center text-lg md:text-xl text-gray-700 mb-10 md:mb-12 max-w-3xl mx-auto leading-relaxed">
             Prêt à donner une nouvelle dimension à vos biens ? Parlons de votre projet !</p>
         <div class="max-w-2xl mx-auto bg-white p-8 md:p-10 rounded-xl shadow-xl">
-            <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
-                <div class="mb-4 md:mb-5"><label for="name" class="block text-gray-700 font-medium mb-2">Nom complet</label><input type="text" id="name" name="name" required class="w-full px-4 py-2 md:py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500"></div>
-                <div class="mb-4 md:mb-5"><label for="email" class="block text-gray-700 font-medium mb-2">Email</label><input type="email" id="email" name="email" required class="w-full px-4 py-2 md:py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500"></div>
-                <div class="mb-4 md:mb-5"><label for="phone" class="block text-gray-700 font-medium mb-2">Téléphone (Optionnel)</label><input type="tel" id="phone" name="phone" class="w-full px-4 py-2 md:py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500"></div>
-                <div class="mb-5 md:mb-6"><label for="message" class="block text-gray-700 font-medium mb-2">Votre message</label><textarea id="message" name="message" rows="5" required class="w-full px-4 py-2 md:py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500"></textarea></div>
+            <form action="https://formspree.io/f/xzblzpvv" method="POST" class="animate-fade-in">
+                <div class="mb-4 md:mb-5">
+                    <label for="name" class="block text-gray-700 font-medium mb-2">Nom complet</label>
+                    <input type="text" id="name" name="name" required 
+                           class="w-full px-4 py-2 md:py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                           aria-label="Votre nom complet">
+                </div>
+                <div class="mb-4 md:mb-5">
+                    <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
+                    <input type="email" id="email" name="email" required 
+                           class="w-full px-4 py-2 md:py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                           aria-label="Votre adresse email">
+                </div>
+                <div class="mb-4 md:mb-5">
+                    <label for="phone" class="block text-gray-700 font-medium mb-2">Téléphone (Optionnel)</label>
+                    <input type="tel" id="phone" name="phone" 
+                           class="w-full px-4 py-2 md:py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                           aria-label="Votre numéro de téléphone (optionnel)">
+                </div>
+                <div class="mb-5 md:mb-6">
+                    <label for="message" class="block text-gray-700 font-medium mb-2">Votre message</label>
+                    <textarea id="message" name="message" rows="5" required 
+                              class="w-full px-4 py-2 md:py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                              aria-label="Votre message"></textarea>
+                </div>
                 <div class="text-center"><button type="submit" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-3 px-8 md:py-4 md:px-10 rounded-lg text-lg md:text-xl shadow-md hover:shadow-lg transition-all duration-300">Envoyer le message</button></div>
             </form>
             <div class="mt-10 md:mt-12 text-center">
@@ -261,17 +311,67 @@
     </div>
 </footer>
 
-<script>
-    lucide.createIcons();
+<script defer>
+    // Attendre que le DOM soit chargé
+    document.addEventListener('DOMContentLoaded', () => {
+        // Initialiser les icônes Lucide
+        if (window.lucide) {
+            lucide.createIcons();
+        }
 
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', e => {
-            e.preventDefault();
-            const target = document.querySelector(anchor.getAttribute('href'));
-            if (target) target.scrollIntoView({ behavior: 'smooth' });
+        // Gestion du header transparent/opaque au scroll
+        const header = document.querySelector('header');
+        let lastScroll = 0;
+        
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll <= 0) {
+                header.classList.remove('shadow-lg');
+                header.classList.add('bg-white/95');
+            } else {
+                header.classList.add('shadow-lg');
+                header.classList.add('bg-white');
+                header.classList.remove('bg-white/95');
+            }
+            
+            lastScroll = currentScroll;
         });
+
+        // Animation des sections au scroll
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observer les sections principales
+        document.querySelectorAll('section > div').forEach(section => {
+            section.style.opacity = '0';
+            observer.observe(section);
+        });
+
+        // Navigation fluide
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', e => {
+                e.preventDefault();
+                const target = document.querySelector(anchor.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // Mise à jour de l'année dans le footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
     });
-    document.getElementById('currentYear').textContent = new Date().getFullYear();
 </script>
 
 </body>
