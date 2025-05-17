@@ -98,61 +98,85 @@
         }
 
         /* Styles pour les transitions de page */
+        /* Structure principale */
+        #main-content {
+            min-height: 100vh;
+            padding-top: 64px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        /* Conteneur des sections */
+        .sections-container {
+            flex: 1 0 auto;
+            position: relative;
+            background-color: #fff;
+            overflow: hidden;
+        }
+
+        /* Styles des sections */
         section {
-            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-            position: fixed;
-            top: 0;
-            left: 0;
             width: 100%;
-            height: 100%;
-            overflow-y: auto;
-            padding-top: 5rem;
+            position: absolute;
+            left: 0;
+            top: 0;
             opacity: 0;
+            pointer-events: none;
             transform: translateY(20px);
-            display: none;
-            background-color: inherit;
+            transition: opacity 0.3s ease-out, transform 0.3s ease-out;
         }
 
         section.active {
+            position: relative;
             opacity: 1;
+            pointer-events: auto;
             transform: translateY(0);
-            display: block;
         }
 
-        /* Ajustement pour le header fixe */
+        /* Header fixe */
         header {
             position: fixed;
-            width: 100%;
             top: 0;
             left: 0;
+            right: 0;
             z-index: 1000;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            height: 64px;
+            border-bottom: 1px solid rgba(229, 231, 235, 0.5);
         }
 
-        /* Conteneur principal pour le scroll */
-        body {
-            overflow-x: hidden;
-            overflow-y: hidden;
+        /* Footer */
+        footer {
+            flex-shrink: 0;
+            background-color: #1f2937;
             position: relative;
-            height: 100vh;
+            width: 100%;
+        }
+
+        /* Navigation active state */
+        .nav-link.active {
+            color: #d97706;
+            font-weight: 500;
+        }
+
+        /* Ajustements pour le scroll */
+        html, body {
+            height: 100%;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
             background-color: #f3f4f6;
+        }
+
+        /* Ajustements pour les transitions */
+        .sections-container > section:not(.active) {
+            display: none;
         }
 
         /* Ajustements pour le footer */
         footer {
-            position: relative;
-            z-index: 1000;
-        }
-
-        /* Ajustements pour les transitions */
-        .section-content {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
-        }
-
-        section.active .section-content {
-            opacity: 1;
-            transform: translateY(0);
+            margin-top: auto;
         }
 
         /* Media query pour les écrans plus grands pour l'image héros */
@@ -164,9 +188,10 @@
     </style>
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
-<body class="bg-gray-100 text-gray-700 overflow-x-hidden">
+<body class="bg-gray-100 text-gray-700">
 
-<header class="bg-white/95 backdrop-blur-sm shadow-lg sticky top-0 z-50 transition-all duration-300">
+<div id="main-content">
+<header class="bg-white/95 backdrop-blur-sm shadow-lg fixed top-0 z-50 transition-all duration-300 w-full">
     <div class="container mx-auto px-4 md:px-6 py-3 md:py-4 flex justify-between items-center">
         <a href="#accueil" class="flex items-center">
             <img src="images/Logo Immobilier Liège Drones.png" alt="Logo Liège Real Estate Drones" 
@@ -183,6 +208,7 @@
     </div>
 </header>
 
+<div class="sections-container">
 <section id="accueil">
     <div class="hero-image-container animate-fade-in" style="animation-delay: 0.2s">
     </div>
@@ -414,6 +440,8 @@
         <p class="text-sm md:text-base">Site web conçu avec passion.</p>
     </div>
 </footer>
+</div>
+</div>
 
 <script defer>
     // Attendre que le DOM soit chargé
@@ -452,23 +480,21 @@
             // Cacher toutes les sections sauf la cible
             sections.forEach(section => {
                 if (section.id !== sectionId) {
-                    section.style.opacity = '0';
-                    section.style.transform = 'translateY(20px)';
-                    setTimeout(() => {
-                        section.style.display = 'none';
-                    }, instant ? 0 : 300);
+                    section.classList.remove('active');
+                    section.style.visibility = 'hidden';
                 }
             });
 
             // Afficher la section cible
+            targetSection.classList.add('active');
+            targetSection.style.visibility = 'visible';
+            
+            // Scroll en haut de la page
+            window.scrollTo(0, 0);
+            
             setTimeout(() => {
-                targetSection.style.display = 'block';
-                setTimeout(() => {
-                    targetSection.style.opacity = '1';
-                    targetSection.style.transform = 'translateY(0)';
-                    isAnimating = false;
-                }, 50);
-            }, instant ? 0 : 300);
+                isAnimating = false;
+            }, 300);
 
             currentSection = sectionId;
             updateURL(sectionId);
