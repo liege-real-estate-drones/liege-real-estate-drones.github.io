@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Liège Real Estate Drones - Storytelling Immobilier Extérieur</title>
+    <title>Liège Real Estate Drones - Storytelling Immobilier Extérieur par Thibault Wislez</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -18,7 +18,7 @@
             background-position: center;
         }
         .section-title { @apply text-3xl font-bold text-center mb-8 text-gray-800; }
-        .card { @apply bg-white rounded-lg shadow-lg p-6 transition-transform duration-300 hover:scale-105; }
+        .card { @apply bg-white rounded-lg shadow-lg p-6 transition-transform duration-300 hover:scale-105 flex flex-col; }
         .video-container {
             position: relative;
             padding-bottom: 56.25%; /* 16:9 */
@@ -31,7 +31,20 @@
             top: 0; left: 0;
             width: 100%; height: 100%;
         }
+        .service-icon {
+            @apply mx-auto mb-4 text-yellow-600;
+        }
+        .legal-section {
+            @apply mt-10 mb-8 p-6 bg-yellow-50 border border-yellow-300 rounded-lg shadow;
+        }
+        .legal-section h3 {
+            @apply text-xl font-semibold text-yellow-700 mb-3 flex items-center;
+        }
+        .legal-section p {
+            @apply text-gray-700 text-sm;
+        }
     </style>
+    <script src="https://cdn.jsdelivr.net/npm/lucide-static@latest/dist/lucide.min.js"></script>
 </head>
 <body class="bg-gray-100 text-gray-700">
 
@@ -56,28 +69,32 @@
         <div class="container mx-auto px-6 text-center">
             <h1 class="text-4xl md:text-6xl font-bold mb-4">Révélez l'histoire unique de votre bien immobilier</h1>
             <p class="text-lg md:text-2xl mb-8">Services de drones spécialisés dans le storytelling immobilier extérieur à Liège.</p>
-            <a href="#services" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-3 px-8 rounded-lg text-lg transition-colors">Découvrir nos services</a>
+            <a href="#services" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-3 px-8 rounded-lg text-lg transition-colors">Découvrir mes services</a>
         </div>
     </div>
 </section>
 
 <section id="a-propos" class="py-16 bg-white">
     <div class="container mx-auto px-6">
-        <h2 class="section-title">Qui sommes-nous ?</h2>
-        <div class="md:flex md:items-center md:space-x-8">
-            <div class="md:w-1/2 mb-8 md:mb-0">
-                <img src="https://placehold.co/600x400/e2e8f0/cbd5e0?text=Notre+%C3%A9quipe+dynamique" alt="À propos" class="rounded-lg shadow-lg">
-            </div>
-            <div class="md:w-1/2">
+        <h2 class="section-title">Un Pilote Passionné et Qualifié à Votre Service</h2>
+        <div class="md:flex md:items-start md:space-x-12">
+            <div class="md:w-2/3">
                 <p class="mb-4 text-lg">
-                    Liège Real Estate Drones est votre partenaire privilégié pour la valorisation de biens immobiliers grâce à des prises de vues aériennes exceptionnelles. Nous mettons notre expertise au service du <strong class="text-yellow-600">storytelling immobilier extérieur</strong>.
+                    Derrière Liège Real Estate Drones, il y a <strong class="text-yellow-600">Thibault Wislez</strong>, un passionné d'immobilier et d'images aériennes, mais aussi <strong class="text-yellow-600">contrôleur aérien professionnel</strong>. Cette double casquette est votre meilleure garantie pour des prestations de qualité, réalisées en toute sécurité et dans le strict respect de la réglementation.
                 </p>
                 <p class="mb-4">
-                    Nous utilisons le drone <strong class="text-yellow-600">DJI Mini 4 Pro</strong>, un concentré de technologie qui nous permet de capturer des images et vidéos de haute qualité en toute discrétion et conformité.
+                    En tant qu'interlocuteur unique, je m'engage personnellement à comprendre vos besoins et à mettre en œuvre mon expertise pour valoriser votre bien. Mon objectif : créer un storytelling visuel extérieur percutant grâce au <strong class="text-yellow-600">DJI Mini 4 Pro</strong>, un drone discret et performant.
+                </p>
+                <p class="mb-4">
+                    Ma connaissance approfondie de l'espace aérien et des procédures ATC (Contrôle du Trafic Aérien) me permet d'assurer une planification rigoureuse de chaque vol. Je m'occupe de toutes les démarches nécessaires pour des opérations légales et sécurisées.
                 </p>
                 <p>
-                    Notre mission est de créer un impact émotionnel fort et de présenter chaque bien sous son meilleur jour.
+                    Titulaire de la <strong class="text-yellow-600">licence européenne de pilote de drone EASA (catégorie Ouverte A1/A3)</strong> et enregistré en tant qu'exploitant UAS sous le numéro <strong class="text-yellow-600">BELvti37e9v4s6ba</strong>, je vous offre un service professionnel et conforme aux normes les plus exigeantes.
                 </p>
+            </div>
+            <div class="md:w-1/3 mt-8 md:mt-0 flex flex-col items-center">
+                <img src="images/EASA.png" alt="Licence EASA Pilote de Drone Thibault Wislez" class="rounded-lg shadow-lg mb-4 w-full max-w-xs">
+                <p class="text-sm text-gray-600 text-center">Licence EASA A1/A3 : BEL-RP-r5txwf3zvtg3</p>
             </div>
         </div>
     </div>
@@ -85,27 +102,63 @@
 
 <section id="services" class="py-16 bg-gray-50">
     <div class="container mx-auto px-6">
-        <h2 class="section-title">Nos Services avec le DJI Mini 4 Pro</h2>
-        <p class="text-center text-lg mb-12 max-w-3xl mx-auto">Nous nous concentrons exclusivement sur la capture d'images extérieures pour raconter l'histoire de votre propriété.</p>
+        <h2 class="section-title">Mes Services avec le DJI Mini 4 Pro</h2>
+        <p class="text-center text-lg mb-6 max-w-3xl mx-auto">Des prestations sur mesure pour un storytelling immobilier extérieur qui fait la différence, en étroite collaboration avec vous, agents immobiliers.</p>
+        
+        <div class="legal-section max-w-4xl mx-auto">
+            <h3>
+                <i data-lucide="alert-triangle" class="w-6 h-6 mr-2"></i>
+                Votre Tranquillité d'Esprit : Pourquoi faire appel à un professionnel agréé ?
+            </h3>
+            <p class="mb-2">
+                Utiliser un drone pour valoriser un bien est une excellente idée, mais se lancer sans les qualifications et autorisations requises comporte des risques significatifs. Un incident (chute du drone, dommages matériels sur un véhicule de luxe, ou pire, dommages corporels) peut rapidement entraîner des complications légales et financières importantes pour l'opérateur non-conforme. Ces risques sont malheureusement souvent sous-estimés.
+            </p>
+            <p>
+                En me confiant vos prises de vues aériennes, vous optez pour la sérénité. Fort de mon expérience de <strong class="text-yellow-700">contrôleur aérien</strong> et en tant que <strong class="text-yellow-700">pilote de drone certifié EASA</strong>, je gère l'intégralité des aspects réglementaires : analyse de la zone de vol, demandes d'autorisations spécifiques si nécessaires, et respect scrupuleux des règles de l'air. Mon expertise garantit des opérations menées en toute légalité et sécurité, protégeant ainsi votre réputation et vos intérêts.
+            </p>
+        </div>
+
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- six cards identiques à la réponse précédente -->
-            <div class="card"><h3 class="text-xl font-semibold mb-3 text-yellow-600">Photographies Aériennes HD</h3><p>Des clichés haute résolution capturant les meilleurs angles.</p></div>
-            <div class="card"><h3 class="text-xl font-semibold mb-3 text-yellow-600">Vidéos Cinématiques 4K</h3><p>Séquences fluides et immersives pour une narration visuelle.</p></div>
-            <div class="card"><h3 class="text-xl font-semibold mb-3 text-yellow-600">Mise en Valeur de l'Environnement</h3><p>Prises de vues soulignant jardin, quartier, atouts environnants.</p></div>
-            <div class="card"><h3 class="text-xl font-semibold mb-3 text-yellow-600">Storytelling Visuel</h3><p>Un récit qui met en avant le caractère unique de chaque propriété.</p></div>
-            <div class="card"><h3 class="text-xl font-semibold mb-3 text-yellow-600">Technologie DJI Mini 4 Pro</h3><p>Qualité d'image pro, vols sécurisés et discrets.</p></div>
-            <div class="card"><h3 class="text-xl font-semibold mb-3 text-yellow-600">Livraison Rapide</h3><p>Photos et vidéos optimisées prêtes à l'emploi.</p></div>
+            <div class="card text-center">
+                <i data-lucide="camera" class="service-icon w-12 h-12"></i>
+                <h3 class="text-xl font-semibold mb-3 text-yellow-600">Photographies Aériennes HD</h3>
+                <p>Des clichés haute résolution valorisant les meilleurs angles et l'intégration du bien dans son environnement.</p>
+            </div>
+            <div class="card text-center">
+                <i data-lucide="video" class="service-icon w-12 h-12"></i>
+                <h3 class="text-xl font-semibold mb-3 text-yellow-600">Vidéos Cinématiques 4K</h3>
+                <p>Séquences fluides et immersives pour une narration visuelle extérieure captivante et dynamique.</p>
+            </div>
+            <div class="card text-center">
+                <i data-lucide="users-2" class="service-icon w-12 h-12"></i>
+                <h3 class="text-xl font-semibold mb-3 text-yellow-600">Approche Collaborative & Personnalisée</h3>
+                <p>Je travaille main dans la main avec vous, agents immobiliers. Intégration de vos consignes spécifiques (textes, narration) et de votre logo d'agence pour un résultat qui vous ressemble.</p>
+            </div>
+            <div class="card text-center">
+                <i data-lucide="map-pin" class="service-icon w-12 h-12"></i>
+                <h3 class="text-xl font-semibold mb-3 text-yellow-600">Mise en Valeur de l'Environnement</h3>
+                <p>Prises de vues soulignant le jardin, le quartier, la proximité des commodités et les atouts environnants.</p>
+            </div>
+            <div class="card text-center">
+                <i data-lucide="shield-check" class="service-icon w-12 h-12"></i>
+                <h3 class="text-xl font-semibold mb-3 text-yellow-600">Vols Sécurisés & Conformes</h3>
+                <p>Utilisation du DJI Mini 4 Pro (&lt;250g), opéré par un pilote certifié EASA (exploitant UAS: BELvti37e9v4s6ba), garantissant sécurité et respect de la réglementation.</p>
+            </div>
+            <div class="card text-center">
+                <i data-lucide="rocket" class="service-icon w-12 h-12"></i>
+                <h3 class="text-xl font-semibold mb-3 text-yellow-600">Livraison Rapide & Optimisée</h3>
+                <p>Recevez rapidement vos photos et vidéos, optimisées pour le web et prêtes à être intégrées à vos annonces.</p>
+            </div>
         </div>
     </div>
 </section>
 
 <section id="portfolio" class="py-16 bg-white">
     <div class="container mx-auto px-6">
-        <h2 class="section-title">Notre Portfolio</h2>
-        <p class="text-center text-lg mb-12 max-w-3xl mx-auto">Découvrez quelques exemples de notre travail.</p>
+        <h2 class="section-title">Mon Portfolio</h2>
+        <p class="text-center text-lg mb-12 max-w-3xl mx-auto">Découvrez quelques exemples de mon travail.</p>
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-            <!-- Roloux -->
             <div class="card">
                 <h3 class="text-xl font-semibold mb-3 text-yellow-600">Vidéo Démo Immobilier : Roloux</h3>
                 <div class="video-container bg-gray-200">
@@ -115,7 +168,6 @@
                 </div>
             </div>
 
-            <!-- Château -->
             <div class="card">
                 <h3 class="text-xl font-semibold mb-3 text-yellow-600">Présentation Château</h3>
                 <div class="video-container bg-gray-200">
@@ -125,7 +177,6 @@
                 </div>
             </div>
 
-            <!-- École -->
             <div class="card">
                 <h3 class="text-xl font-semibold mb-3 text-yellow-600">Présentation École</h3>
                 <div class="video-container bg-gray-200">
@@ -138,8 +189,8 @@
 
         <div class="text-center mt-12">
             <a href="https://www.youtube.com/@RealEstateDrone-f4e" target="_blank" rel="noopener noreferrer"
-               class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition-colors">
-                Visitez notre chaîne YouTube @RealEstateDrone-f4e
+                class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition-colors">
+                Visitez ma chaîne YouTube @RealEstateDrone-f4e
             </a>
         </div>
     </div>
@@ -147,11 +198,10 @@
 
 <section id="contact" class="py-16 bg-gray-50">
     <div class="container mx-auto px-6">
-        <h2 class="section-title">Contactez-nous</h2>
+        <h2 class="section-title">Contactez-moi</h2>
         <p class="text-center text-lg mb-12 max-w-3xl mx-auto">Prêt à donner une nouvelle dimension à vos biens ? Parlons-en !</p>
         <div class="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-lg">
             <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
-                <!-- champs identiques -->
                 <div class="mb-4"><label for="name" class="block text-gray-700 font-medium mb-2">Nom complet</label><input type="text" id="name" name="name" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500"></div>
                 <div class="mb-4"><label for="email" class="block text-gray-700 font-medium mb-2">Email</label><input type="email" id="email" name="email" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500"></div>
                 <div class="mb-4"><label for="phone" class="block text-gray-700 font-medium mb-2">Téléphone (Optionnel)</label><input type="tel" id="phone" name="phone" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500"></div>
@@ -159,7 +209,7 @@
                 <div class="text-center"><button type="submit" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-3 px-8 rounded-lg text-lg transition-colors">Envoyer le message</button></div>
             </form>
             <div class="mt-12 text-center">
-                <p class="text-lg font-medium mb-2">Ou contactez directement :</p>
+                <p class="text-lg font-medium mb-2">Ou contactez-moi directement :</p>
                 <p>Thibault Wislez</p>
                 <p>Email : <a href="mailto:drones.realestate.liege@gmail.com" class="text-yellow-600 hover:underline">drones.realestate.liege@gmail.com</a></p>
                 <p>Tél : <a href="tel:0471830636" class="text-yellow-600 hover:underline">0471 83 06 36</a></p>
@@ -171,13 +221,14 @@
 
 <footer class="bg-gray-800 text-white py-8">
     <div class="container mx-auto px-6 text-center">
-        <p>© <span id="currentYear"></span> Liège Real Estate Drones. Tous droits réservés.</p>
+        <p>© <span id="currentYear"></span> Liège Real Estate Drones par Thibault Wislez. Tous droits réservés.</p>
         <p>Site web conçu avec passion.</p>
     </div>
 </footer>
 
 <script>
-    // Smooth scrolling
+    lucide.createIcons();
+
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', e => {
             e.preventDefault();
@@ -185,7 +236,6 @@
             if (target) target.scrollIntoView({ behavior: 'smooth' });
         });
     });
-    // Year in footer
     document.getElementById('currentYear').textContent = new Date().getFullYear();
 </script>
 
