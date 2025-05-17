@@ -31,7 +31,7 @@
         .hero-image-container {
             background-image: url('images/Maison en fond logo et texte.png');
             background-size: cover;
-            background-position: center 60%; /* Ajuste la position verticale de l'image de fond */
+            background-position: center 40%; /* Ajusté pour montrer le drone complet */
             height: 50vh; /* Hauteur par défaut pour mobile et petits écrans */
             min-height: 300px; /* Hauteur minimale pour éviter que l'image ne devienne trop petite */
         }
@@ -97,6 +97,44 @@
             @apply text-gray-600 hover:text-yellow-600 transition-colors px-2 py-2 rounded-md text-sm md:text-base md:px-3; /* Padding et taille de police ajustés */
         }
 
+        /* Styles pour les transitions de page */
+        section {
+            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow-y: auto;
+            padding-top: 4rem;
+            opacity: 0;
+            transform: translateY(20px);
+            display: none;
+        }
+
+        section.active {
+            opacity: 1;
+            transform: translateY(0);
+            display: block;
+        }
+
+        /* Ajustement pour le header fixe */
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        /* Conteneur principal pour le scroll */
+        body {
+            overflow-x: hidden;
+            overflow-y: hidden;
+            position: relative;
+            height: 100vh;
+        }
+
         /* Media query pour les écrans plus grands pour l'image héros */
         @media (min-width: 768px) { /* md breakpoint de Tailwind */
             .hero-image-container {
@@ -131,7 +169,7 @@
     <div class="hero-text-container">
         <div class="container mx-auto px-4 md:px-6">
             <h1 class="text-3xl md:text-5xl font-bold mb-5 md:mb-6 text-gray-800 animate-fade-in" style="animation-delay: 0.4s">Révélez l'histoire unique de votre bien immobilier</h1>
-            <p class="text-base md:text-xl text-gray-700 mb-8 md:mb-10 max-w-2xl mx-auto leading-relaxed animate-fade-in" style="animation-delay: 0.6s">Services de drones spécialisés dans le storytelling immobilier extérieur à Liège.</p>
+            <p class="text-base md:text-xl text-gray-700 mb-8 md:mb-10 max-w-2xl mx-auto leading-relaxed animate-fade-in" style="animation-delay: 0.6s">À Liège, votre expert en storytelling immobilier par drone pour sublimer l'extérieur de vos biens.</p>
             <a href="#services" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-3 px-8 md:py-4 md:px-10 rounded-lg text-lg md:text-xl shadow-md hover:shadow-lg transition-all duration-300">Découvrir mes services</a>
         </div>
     </div>
@@ -365,6 +403,57 @@
             lucide.createIcons();
         }
 
+        // Gestion des transitions de page
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+        let currentSection = 'accueil';
+        let isAnimating = false;
+
+        function updateURL(sectionId) {
+            const url = new URL(window.location);
+            url.hash = sectionId;
+            history.pushState({}, '', url);
+        }
+
+        function showSection(sectionId, instant = false) {
+            if (isAnimating) return;
+            isAnimating = true;
+
+            const targetSection = document.getElementById(sectionId);
+            if (!targetSection) return;
+
+            // Mettre à jour la navigation
+            navLinks.forEach(link => {
+                const linkSection = link.getAttribute('href').substring(1);
+                link.classList.toggle('text-yellow-600', linkSection === sectionId);
+                link.classList.toggle('text-gray-600', linkSection !== sectionId);
+            });
+
+            // Cacher toutes les sections sauf la cible
+            sections.forEach(section => {
+                if (section.id !== sectionId) {
+                    section.style.opacity = '0';
+                    section.style.transform = 'translateY(20px)';
+                    setTimeout(() => {
+                        section.style.display = 'none';
+                    }, instant ? 0 : 300);
+                }
+            });
+
+            // Afficher la section cible
+            setTimeout(() => {
+                targetSection.style.display = 'block';
+                setTimeout(() => {
+                    targetSection.style.opacity = '1';
+                    targetSection.style.transform = 'translateY(0)';
+                    isAnimating = false;
+                }, 50);
+            }, instant ? 0 : 300);
+
+            currentSection = sectionId;
+            updateURL(sectionId);
+        }
+
         // Gestion du header transparent/opaque au scroll
         const header = document.querySelector('header');
         let lastScroll = 0;
@@ -406,14 +495,24 @@
             observer.observe(section);
         });
 
-        // Navigation fluide
+        // Navigation avec transitions
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', e => {
                 e.preventDefault();
-                const target = document.querySelector(anchor.getAttribute('href'));
-                if (target) target.scrollIntoView({ behavior: 'smooth' });
+                const sectionId = anchor.getAttribute('href').substring(1);
+                showSection(sectionId);
             });
         });
+
+        // Gestion de l'historique de navigation
+        window.addEventListener('popstate', () => {
+            const sectionId = window.location.hash.substring(1) || 'accueil';
+            showSection(sectionId, true);
+        });
+
+        // Initialisation de la première section
+        const initialSection = window.location.hash.substring(1) || 'accueil';
+        showSection(initialSection, true);
 
         // Mise à jour de l'année dans le footer
         document.getElementById('currentYear').textContent = new Date().getFullYear();
