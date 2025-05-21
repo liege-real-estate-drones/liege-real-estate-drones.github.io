@@ -1,0 +1,52 @@
+<section id="contact" class="py-16 md:py-20 bg-slate-100">
+    <div class="container mx-auto px-4 md:px-6">
+        <div class="flex items-center justify-center mb-8">
+            <i data-lucide="message-circle" class="w-10 h-10 text-yellow-500 mr-3"></i>
+            <h2 class="section-title mb-0">Contactez-moi</h2>
+        </div>
+        <div class="bg-white rounded-xl p-6 md:p-8 shadow-lg max-w-3xl mx-auto mb-12 text-center">
+            <h3 class="text-2xl md:text-3xl font-semibold text-yellow-600 mb-4">
+                Prêt à donner une nouvelle dimension à vos biens ?
+            </h3>
+            <p class="text-xl md:text-2xl text-gray-700 font-medium">
+                Parlons de votre projet !
+            </p>
+        </div>
+        <div class="max-w-2xl mx-auto bg-white p-8 md:p-10 rounded-xl shadow-xl">
+            <form action="https://formspree.io/f/xeogvyer" method="POST" class="animate-fade-in">
+                <div class="mb-4 md:mb-5">
+                    <label for="name" class="block text-gray-700 font-medium mb-2">Nom complet</label>
+                    <input type="text" id="name" name="name" required 
+                           class="w-full px-4 py-2 md:py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                           aria-label="Votre nom complet">
+                </div>
+                <div class="mb-4 md:mb-5">
+                    <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
+                    <input type="email" id="email" name="email" required 
+                           class="w-full px-4 py-2 md:py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                           aria-label="Votre adresse email">
+                </div>
+                <div class="mb-4 md:mb-5">
+                    <label for="phone" class="block text-gray-700 font-medium mb-2">Téléphone (Optionnel)</label>
+                    <input type="tel" id="phone" name="phone" 
+                           class="w-full px-4 py-2 md:py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                           aria-label="Votre numéro de téléphone (optionnel)">
+                </div>
+                <div class="mb-5 md:mb-6">
+                    <label for="message" class="block text-gray-700 font-medium mb-2">Votre message</label>
+                    <textarea id="message" name="message" rows="5" required 
+                              class="w-full px-4 py-2 md:py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                              aria-label="Votre message"></textarea>
+                </div>
+                <div class="text-center"><button type="submit" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-3 px-8 md:py-4 md:px-10 rounded-lg text-lg md:text-xl shadow-md hover:shadow-lg transition-all duration-300">Envoyer le message</button></div>
+            </form>
+            <div class="mt-10 md:mt-12 text-center">
+                <p class="text-base md:text-lg font-medium mb-2 md:mb-3">Ou contactez-moi directement :</p>
+                <p class="text-base md:text-lg mb-1">Thibault Wislez</p>
+                <p class="text-base md:text-lg mb-1">Email : <a href="mailto:drones.realestate.liege@gmail.com" class="text-yellow-600 hover:underline">drones.realestate.liege@gmail.com</a></p>
+                <p class="text-base md:text-lg mb-1">Tél : <a href="tel:0471830636" class="text-yellow-600 hover:underline">0471 83 06 36</a></p>
+                <p class="text-base md:text-lg">Adresse : Vieille Ruelle 31, 4347 Roloux, Belgique</p>
+            </div>
+        </div>
+    </div>
+</section>
