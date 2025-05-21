@@ -654,6 +654,21 @@
             // Afficher la section cible
             targetSection.classList.add('active');
             targetSection.style.visibility = 'visible';
+
+            // Ensure its direct div children are animated/made visible for initial "instant" load
+            if (instant) {
+                const childDivs = targetSection.querySelectorAll(':scope > div');
+                const observerInstance = window.observerInstance; // Use the new global name
+
+                childDivs.forEach(div => {
+                    div.classList.add('animate-fade-in');
+                    // Ensure opacity is set to 1 as classList.add might not be enough if initial opacity is 0
+                    div.style.opacity = '1'; 
+                    if (observerInstance) {
+                        observerInstance.unobserve(div);
+                    }
+                });
+            }
             
             // Scroll en haut de la page
             window.scrollTo(0, 0);
@@ -692,11 +707,11 @@
             threshold: 0.1
         };
 
-        const observer = new IntersectionObserver((entries) => {
+        window.observerInstance = new IntersectionObserver((entries) => { // Made observer global
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('animate-fade-in');
-                    observer.unobserve(entry.target);
+                    window.observerInstance.unobserve(entry.target); // Updated usage
                 }
             });
         }, observerOptions);
@@ -704,7 +719,7 @@
         // Observer les sections principales
         document.querySelectorAll('section > div').forEach(section => {
             section.style.opacity = '0';
-            observer.observe(section);
+            window.observerInstance.observe(section); // Updated usage
         });
 
         // Navigation avec transitions
