@@ -1,721 +1,732 @@
 <!DOCTYPE html>
-
 <html lang="fr">
-
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Liège Real Estate Drones - Storytelling Immobilier Extérieur par Thibault Wislez</title>
-
     <link rel="icon" type="image/png" href="images/Logo Immobilier Liège Drones.png">
-
     <script src="https://cdn.tailwindcss.com" defer></script>
-
     <link rel="preload" href="images/Maison en fond logo et texte.png" as="image">
-
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
     <meta name="description" content="Services de drones spécialisés dans le storytelling immobilier extérieur à Liège par Thibault Wislez. Photographie et vidéo aérienne professionnelle pour l'immobilier.">
-
     <meta name="keywords" content="drone immobilier, photographie aérienne, vidéo drone, Liège, storytelling immobilier, Thibault Wislez">
-
     <meta property="og:title" content="Liège Real Estate Drones - Storytelling Immobilier Extérieur">
-
     <meta property="og:description" content="Services de drones spécialisés dans le storytelling immobilier extérieur à Liège. Photographie et vidéo aérienne professionnelle.">
-
     <meta property="og:type" content="website">
-
     <meta name="robots" content="index, follow">
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
-
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
     <style>
-
         body { 
-
             font-family: 'Inter', sans-serif; 
-
             -webkit-font-smoothing: antialiased; /* Amélioration du rendu des polices */
-
             -moz-osx-font-smoothing: grayscale;
-
         }
-
         ::-webkit-scrollbar { width: 8px; }
-
         ::-webkit-scrollbar-track { background: #f1f1f1; }
-
         ::-webkit-scrollbar-thumb { background: #888; border-radius: 4px; }
-
         ::-webkit-scrollbar-thumb:hover { background: #555; }
-
         
-
         .hero-image-container {
-
             background-image: url('images/Maison en fond logo et texte.png');
-
             background-size: cover;
-
             background-position: center 40%; /* Ajusté pour montrer le drone complet */
-
             height: 50vh; /* Hauteur par défaut pour mobile et petits écrans */
-
             min-height: 300px; /* Hauteur minimale pour éviter que l'image ne devienne trop petite */
-
         }
-
         .hero-text-container {
-
             @apply bg-white py-12 md:py-16 text-center; /* Padding ajusté pour mobile */
-
         }
-
-
 
         .section-title { @apply text-2xl md:text-3xl font-bold text-center mb-10 md:mb-12 text-gray-800; } /* Taille de police ajustée pour mobile */
-
         /* Animations */
-
         @keyframes fadeIn {
-
             from { opacity: 0; transform: translateY(20px); }
-
             to { opacity: 1; transform: translateY(0); }
-
         }
-
-
 
         .animate-fade-in {
-
             animation: fadeIn 0.8s ease-out forwards;
-
             opacity: 0;
-
         }
-
-
 
         .card { 
-
             @apply bg-white rounded-xl shadow-xl p-6 md:p-8 flex flex-col text-center transition-all duration-300 ease-in-out hover:shadow-2xl hover:-translate-y-2; 
-
             animation: fadeIn 0.8s ease-out forwards;
-
             opacity: 0;
-
         }
-
-
 
         .card:nth-child(1) { animation-delay: 0.1s; }
-
         .card:nth-child(2) { animation-delay: 0.2s; }
-
         .card:nth-child(3) { animation-delay: 0.3s; }
-
         .card:nth-child(4) { animation-delay: 0.4s; }
-
         .card:nth-child(5) { animation-delay: 0.5s; }
-
         .card:nth-child(6) { animation-delay: 0.6s; }
-
         .video-container {
-
             position: relative;
-
             padding-bottom: 56.25%; /* 16:9 */
-
             height: 0;
-
             overflow: hidden;
-
             border-radius: 0.375rem; /* rounded-md */
-
         }
-
         .video-container iframe {
-
             position: absolute;
-
             top: 0; left: 0;
-
             width: 100%; height: 100%;
-
         }
-
         .service-icon {
-
             @apply mx-auto mb-5 md:mb-6 text-yellow-500; /* Margin ajustée */
-
         }
-
         .legal-section-revised { 
-
             @apply mt-16 md:mt-20 mb-16 md:mb-20 p-8 md:p-10 bg-slate-50 border border-slate-200 rounded-xl shadow-lg max-w-4xl mx-auto; /* Padding et margins ajustés */
-
         }
-
         .legal-section-revised h3 {
-
             @apply text-xl md:text-2xl font-semibold text-slate-800 mb-4 flex items-center justify-center text-center; /* Taille de police et alignement ajustés */
-
         }
-
         .legal-section-revised p {
-
             @apply text-gray-700 text-sm md:text-base text-left leading-relaxed; /* Taille de police ajustée */
-
         }
-
         .card h3 {
-
             @apply text-lg md:text-xl font-semibold mb-3 md:mb-4 text-gray-700; /* Taille de police et margin ajustées */
-
         }
-
         .card p {
-
             @apply text-gray-600 text-sm md:text-sm flex-grow leading-relaxed; /* Taille de police ajustée */
         }
-
         .nav-link {
-
             @apply text-gray-600 hover:text-yellow-600 transition-colors px-2 py-2 rounded-md text-sm md:text-base md:px-3; /* Padding et taille de police ajustés */
-
         }
-
-
 
         /* Styles pour les transitions de page */
-
         /* Structure principale */
-
         #main-content {
-
             min-height: 100vh;
-
             padding-top: 64px;
-
             display: flex;
-
             flex-direction: column;
-
             position: relative;
-
         }
-
-
 
         /* Conteneur des sections */
-
         .sections-container {
-
             flex: 1 0 auto;
-
             position: relative;
-
             background-color: #fff;
-
             overflow: hidden;
-
         }
-
-
 
         /* Styles des sections */
-
         section {
-
             width: 100%;
-
             position: absolute;
-
             left: 0;
-
             top: 0;
-
             opacity: 0;
-
             pointer-events: none;
-
             transform: translateY(20px);
-
             transition: opacity 0.3s ease-out, transform 0.3s ease-out;
-
         }
-
-
 
         section.active {
-
             position: relative;
-
             opacity: 1;
-
             pointer-events: auto;
-
             transform: translateY(0);
-
         }
-
-
 
         /* Header fixe */
-
         header {
-
             position: fixed;
-
             top: 0;
-
             left: 0;
-
             right: 0;
-
             z-index: 1000;
-
             background-color: rgba(255, 255, 255, 0.95);
-
             backdrop-filter: blur(8px);
-
             height: 64px;
-
             border-bottom: 1px solid rgba(229, 231, 235, 0.5);
-
         }
-
-
 
         /* Footer */
-
         footer {
-
             flex-shrink: 0;
-
             background-color: #1f2937;
-
             position: relative;
-
             width: 100%;
-
         }
-
-
 
         /* Navigation active state */
-
         .nav-link.active {
-
             color: #d97706;
-
             font-weight: 500;
-
         }
-
-
 
         /* Ajustements pour le scroll */
-
         html, body {
-
             height: 100%;
-
             overflow-x: hidden;
-
             scroll-behavior: smooth;
-
             background-color: #f3f4f6;
-
         }
-
-
 
         /* Ajustements pour les transitions */
-
         .sections-container > section:not(.active) {
-
             display: none;
-
         }
-
-
 
         /* Ajustements pour le footer */
-
         footer {
-
             margin-top: auto;
-
         }
-
-
 
         /* Media query pour les écrans plus grands pour l'image héros */
-
         @media (min-width: 768px) { /* md breakpoint de Tailwind */
-
             .hero-image-container {
-
                 height: 60vh; /* Rétablir la hauteur pour les écrans plus grands */
-
             }
-
         }
-
     </style>
-
     <script src="https://unpkg.com/lucide@latest"></script>
-
 </head>
-
 <body class="bg-gray-100 text-gray-700">
 
-
-
 <div id="main-content">
-
 <header class="bg-white/95 backdrop-blur-sm shadow-lg fixed top-0 z-50 transition-all duration-300 w-full">
-
     <div class="container mx-auto px-4 md:px-6 py-3 md:py-4 flex justify-between items-center">
-
         <a href="#accueil" class="flex items-center">
-
             <img src="images/Logo Immobilier Liège Drones.png" alt="Logo Liège Real Estate Drones" 
-
                  class="h-12 md:h-16 w-auto object-contain mr-3 md:mr-4">
-
             <span class="font-bold text-lg md:text-2xl text-gray-800 hidden sm:block">Liège Real Estate Drones</span>
-
         </a>
-
         <nav class="space-x-1 sm:space-x-2 md:space-x-4">
-
             <a href="#accueil" class="nav-link">Accueil</a>
-
             <a href="#a-propos" class="nav-link">À Propos</a>
-
             <a href="#services" class="nav-link">Services</a>
-
             <a href="#portfolio" class="nav-link">Portfolio</a>
-
             <a href="#contact" class="nav-link">Contact</a>
-
             <a href="#a-venir" class="nav-link">À venir</a>
-
         </nav>
-
     </div>
-
 </header>
 
-
-
 <div class="sections-container">
-
 <section id="accueil">
-
     <div class="hero-image-container animate-fade-in" style="animation-delay: 0.2s">
-
     </div>
-
     <div class="hero-text-container">
-
         <div class="container mx-auto px-4 md:px-6">
-
             <h1 class="text-4xl md:text-5xl font-extrabold mb-5 md:mb-6 text-gray-800 animate-fade-in" style="animation-delay: 0.4s">Révélez l'histoire unique de votre bien immobilier</h1>
             <p class="text-base md:text-xl text-gray-700 mb-8 md:mb-10 max-w-2xl mx-auto leading-relaxed animate-fade-in" style="animation-delay: 0.6s">À Liège, votre expert en storytelling immobilier par drone pour sublimer l'extérieur de vos biens.</p>
-
             <div class="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6 mb-8 md:mb-10">
-
                 <a href="#services" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-3 px-8 md:py-4 md:px-10 rounded-lg text-lg md:text-xl shadow-md hover:shadow-lg transition-all duration-300">Découvrir mes services</a>
-
                 <a href="#a-propos" class="bg-white hover:bg-gray-50 text-gray-800 border-2 border-yellow-500 font-semibold py-3 px-8 md:py-4 md:px-10 rounded-lg text-lg md:text-xl shadow-md hover:shadow-lg transition-all duration-300 inline-flex items-center group">
-
                     <i data-lucide="user" class="w-6 h-6 mr-2"></i>
-
                     Qui suis-je ?
-
                     <i data-lucide="arrow-right-circle" class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform"></i>
-
                 </a>
-
             </div>
-
             <div class="bg-white/90 backdrop-blur-sm rounded-xl p-6 md:p-8 shadow-lg max-w-3xl mx-auto animate-fade-in" style="animation-delay: 0.8s">
-
                 <div class="flex items-center justify-center mb-4">
-
                     <i data-lucide="shield-check" class="w-8 h-8 text-yellow-500 mr-3"></i>
-
                     <h3 class="text-xl md:text-2xl font-semibold text-gray-800">Double Expertise Unique</h3>
-
                 </div>
-
                 <p class="text-gray-700 text-base md:text-lg leading-relaxed">
-
                     Fort de mon expérience unique de contrôleur aérien et de pilote de drone certifié, je vous offre une perspective inégalée pour valoriser vos biens immobiliers. Ma mission : capturer l'essence de chaque propriété avec précision, sécurité et créativité.
-
                 </p>
-
             </div>
-
         </div>
-
     </div>
-
 </section>
-
-
 
 <section id="a-propos" class="py-16 md:py-20 bg-white">
-
     <div class="container mx-auto px-4 md:px-6">
-
         <h2 class="section-title">Un Pilote Passionné et Qualifié à Votre Service</h2>
-
         
-
         <!-- Introduction -->
-
         <div class="max-w-4xl mx-auto mb-12 text-center">
-
             <div class="flex items-center justify-center mb-6">
-
                 <i data-lucide="user" class="w-8 h-8 text-yellow-500 mr-3"></i>
-
                 <h3 class="text-xl md:text-2xl font-semibold text-gray-800">Thibault Wislez</h3>
-
             </div>
-
             <p class="text-lg md:text-xl text-gray-700 leading-relaxed">
-
                 Expert en imagerie aérienne immobilière, alliant passion et professionnalisme pour sublimer vos biens.
-
             </p>
-
         </div>
-
-
 
         <!-- Qualifications Grid -->
-
         <div class="grid md:grid-cols-2 gap-8 md:gap-12 mb-12">
-
             <!-- Expertise ATC -->
-
             <div class="bg-white rounded-xl p-6 md:p-8 shadow-lg hover:shadow-xl transition-shadow">
-
                 <div class="flex items-center mb-4">
-
                     <i data-lucide="radio" class="w-8 h-8 text-blue-600 mr-3"></i>
-
                     <h3 class="text-xl md:text-2xl font-semibold text-gray-800">Contrôleur Aérien Professionnel</h3>
                 </div>
-
                 <p class="text-gray-700 leading-relaxed">
-
                     Ma formation et mon expérience en contrôle aérien garantissent une parfaite maîtrise de l'espace aérien et des procédures de sécurité. Cette expertise unique assure des opérations de drone sûres et conformes à la réglementation.
-
                 </p>
-
             </div>
-
-
 
             <!-- Expertise Drone -->
-
             <div class="bg-white rounded-xl p-6 md:p-8 shadow-lg hover:shadow-xl transition-shadow">
-
                 <div class="flex items-center mb-4">
-
                     <i data-lucide="plane" class="w-8 h-8 text-yellow-500 mr-3"></i>
-
                     <h3 class="text-xl md:text-2xl font-semibold text-gray-800">Pilote de Drone Certifié</h3>
                 </div>
-
                 <p class="text-gray-700 leading-relaxed">
-
                     Équipé du <strong>DJI Mini 4 Pro</strong>, un drone de dernière génération alliant discrétion et performance, je capture des images aériennes spectaculaires qui mettent en valeur vos biens immobiliers sous leur meilleur angle.
-
                 </p>
-
             </div>
-
         </div>
-
-
 
         <!-- Certifications -->
-
         <div class="bg-slate-50 rounded-xl p-6 md:p-8 shadow-lg max-w-4xl mx-auto">
-
             <div class="md:flex items-center justify-between">
-
                 <div class="md:w-2/3 mb-6 md:mb-0 md:pr-8">
-
                     <div class="flex items-center mb-4">
-
                         <i data-lucide="badge-check" class="w-8 h-8 text-green-600 mr-3"></i>
-
                         <h3 class="text-lg md:text-xl font-semibold text-gray-800">Certifications & Accréditations</h3>
-
                     </div>
-
                     <ul class="space-y-3">
-
                         <li class="flex items-start">
-
                             <i data-lucide="check-circle" class="w-5 h-5 text-green-500 mr-2 mt-1"></i>
-
                             <span>Licence européenne de pilote de drone EASA (catégorie Ouverte A1/A3)</span>
-
                         </li>
-
                         <li class="flex items-start">
-
                             <i data-lucide="check-circle" class="w-5 h-5 text-green-500 mr-2 mt-1"></i>
-
                             <span>Exploitant UAS enregistré (N° BELvti37e9v4s6ba)</span>
-
                         </li>
-
                         <li class="flex items-start">
-
                             <i data-lucide="check-circle" class="w-5 h-5 text-green-500 mr-2 mt-1"></i>
-
                             <span>Licence EASA A1/A3 : BEL-RP-r5txwf3zvtg3</span>
-
                         </li>
-
                     </ul>
-
                 </div>
-
                 <div class="md:w-1/3 flex justify-center">
-
                     <img src="images/EASA.png" alt="Licence EASA Pilote de Drone" class="rounded-lg shadow-md max-w-[200px] w-full">
-
                 </div>
-
             </div>
-
         </div>
-
     </div>
-
     <div class="text-center mt-10 md:mt-12 mb-8">
-
         <a href="#services" class="bg-yellow-500 hover:bg-yellow-600 text-white font-semibold py-3 px-6 rounded-lg text-base shadow-md hover:shadow-lg transition-all duration-300 inline-flex items-center group">
-
             Découvrir mes Services
-
             <i data-lucide="arrow-right-circle" class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform"></i>
-
         </a>
-
     </div>
-
 </section>
 
-
-
 <section id="services" class="py-16 md:py-20 bg-slate-100">
-
     <div class="container mx-auto px-4 md:px-6">
-
         <div class="flex items-center justify-center mb-8">
-
             <i data-lucide="award" class="w-10 h-10 text-yellow-500 mr-3"></i>
-
             <h2 class="section-title mb-0">Valorisation Immobilière par Drone : Mon Engagement Qualité</h2>
-
         </div>
-
 <div class="bg-white rounded-xl p-8 shadow-lg max-w-3xl mx-auto mb-16 border-l-4 border-yellow-500">
-
             <p class="text-gray-700 text-lg md:text-xl leading-relaxed font-medium">
-
                 Je vous propose des solutions de captation aérienne conçues pour sublimer vos biens, captiver vos clients et accélérer vos ventes. Chaque prestation est personnalisée, en étroite collaboration avec vous, pour un impact visuel maximal et une conformité irréprochable.
-
             </p>
-
         </div>
-
         
-
         <div class="legal-section-revised">
-
             <h3>
-
                 <i data-lucide="shield-alert" class="w-6 h-6 md:w-7 md:h-7 mr-2 md:mr-3 text-blue-600"></i>
-
                 Optez pour la Sérénité : L'Importance d'un Professionnel Certifié
-
             </h3>
-
             <p class="mb-3 md:mb-4 leading-relaxed">
-
                 La valorisation de biens par drone est un outil puissant. Toutefois, opérer sans les qualifications et autorisations requises peut entraîner des non-conformités réglementaires et engager votre responsabilité en cas d'incident. Une démarche professionnelle est donc cruciale pour sécuriser votre activité et votre image.
-
             </p>
-
             <p class="leading-relaxed">
-
                 En me confiant vos prises de vues, vous choisissez la tranquillité d'esprit. Fort de mon expertise de <strong class="text-blue-700">contrôleur aérien</strong> et en tant que <strong class="text-blue-700">pilote de drone certifié EASA</strong>, je gère l'intégralité des aspects réglementaires (analyse de zone, autorisations si nécessaires, respect des règles de l'air). Je vous assure des prestations conformes et sécurisées, protégeant ainsi votre réputation et vos intérêts.
-
             </p>
-
         </div>
 
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10">
+            <div class="card">
+                <i data-lucide="camera" class="service-icon w-12 h-12 md:w-14 md:h-14"></i>
+                <h3 class="text-xl md:text-2xl text-gray-800">Photographies Aériennes HD</h3>
+                <p>Clichés haute définition révélant les perspectives les plus valorisantes et l'intégration parfaite du bien dans son cadre.</p>
+            </div>
+            <div class="card">
+                <i data-lucide="film" class="service-icon w-12 h-12 md:w-14 md:h-14"></i>
+                <h3 class="text-xl md:text-2xl text-gray-800">Vidéos Cinématiques 4K</h3>
+                <p>Vidéos 4K fluides et immersives, créant une narration visuelle extérieure dynamique et engageante pour vos futurs acquéreurs.</p>
+            </div>
+            <div class="card">
+                <i data-lucide="handshake" class="service-icon w-12 h-12 md:w-14 md:h-14"></i>
+                <h3 class="text-xl md:text-2xl text-gray-800">Collaboration Sur Mesure</h3>
+                <p>Une collaboration étroite pour un service personnalisé : j'intègre vos directives (points clés, narration) et votre identité visuelle (logo) pour un rendu final qui vous correspond.</p>
+            </div>
+            <div class="card">
+                <i data-lucide="map-pin" class="service-icon w-12 h-12 md:w-14 md:h-14"></i>
+                <h3 class="text-xl md:text-2xl text-gray-800">Valorisation de l'Environnement</h3>
+                <p>Mise en lumière de l'environnement direct : jardin, quartier, accès et points d'intérêt, pour une présentation complète des atouts extérieurs.</p>
+            </div>
+            <div class="card">
+                <i data-lucide="shield-check" class="service-icon w-12 h-12 md:w-14 md:h-14"></i>
+                <h3 class="text-xl md:text-2xl text-gray-800">Vols Sécurisés & Réglementaires</h3>
+                <p>Opérations conformes avec le DJI Mini 4 Pro (<250g). Pilote certifié EASA (Exploitant UAS : BELvti37e9v4s6ba), je garantis des vols sécurisés.</p>
+            </div>
+            <div class="card">
+                <i data-lucide="zap" class="service-icon w-12 h-12 md:w-14 md:h-14"></i>
+                <h3 class="text-xl md:text-2xl text-gray-800">Livraison Efficace & Optimisée</h3>
+                <p>Livraison rapide de vos médias, optimisés pour une intégration web immédiate et une qualité d'affichage optimale sur toutes plateformes.</p>
+            </div>
+        </div>
+    </div>
+    <div class="text-center mt-10 md:mt-12 mb-8">
+        <a href="#portfolio" class="bg-yellow-500 hover:bg-yellow-600 text-white font-semibold py-3 px-6 rounded-lg text-base shadow-md hover:shadow-lg transition-all duration-300 inline-flex items-center group">
+            Voir mon Portfolio
+            <i data-lucide="arrow-right-circle" class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform"></i>
+        </a>
+    </div>
+</section>
 
-
+<section id="portfolio" class="py-16 md:py-20 bg-white">
+    <div class="container mx-auto px-4 md:px-6">
+        <h2 class="section-title">Mon Portfolio</h2>
+        <p class="text-center text-lg md:text-xl text-gray-700 mb-10 md:mb-12 max-w-3xl mx-auto leading-relaxed">
+            Découvrez quelques exemples de mon travail.</p>
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10">
 
             <div class="card">
-
-                <i data-lucide="camera" class="service-icon w-12 h-12 md:w-14 md:h-14"></i>
-
-                <h3 class="text-xl md:text-2xl text-gray-800">Photographies Aériennes HD</h3>
-                <p>Clichés haute définition révélant les perspectives les plus valorisantes et l'intégration parfaite du bien dans son cadre.</p>
-
+                <h3 class="text-lg md:text-xl font-semibold mb-3 md:mb-4 text-gray-700">Vidéo Démo Immobilier : Roloux</h3>
+                <div class="video-container bg-gray-200">
+                    <iframe src="https://www.youtube.com/embed/Xd_725E4-qo" title="Roloux" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen></iframe>
+                </div>
             </div>
 
             <div class="card">
-
-                <i data-lucide="film" class="service-icon w-12 h-12 md:w-14 md:h-14"></i>
-
-                <h3 class="text-xl md:text-2xl text-gray-800">Vidéos Cinématiques 4K</h3>
-                <p>Vidéos 4K fluides et immersives, créant une narration visuelle extérieure dynamique et engageante pour vos futurs acquéreurs.</p>
-
+                <h3 class="text-lg md:text-xl font-semibold mb-3 md:mb-4 text-gray-700">Présentation Château</h3>
+                <div class="video-container bg-gray-200">
+                    <iframe src="https://www.youtube.com/embed/Src43pJOPro" title="Château" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen></iframe>
+                </div>
             </div>
 
             <div class="card">
-
-                <i data-lucide="handshake" class="service-icon w-12 h-12 md:w-14 md:h-14"></i>
-
-                <h3 class="text-xl md:text-2xl text-gray-800">Collaboration Sur Mesure</h3>
-                <p>Une collaboration étroite pour un service personnalisé : j'intègre vos directives (points clés, narration) et votre identité visuelle (logo) pour un rendu final qui vous correspond.</p>
-
+                <h3 class="text-lg md:text-xl font-semibold mb-3 md:mb-4 text-gray-700">Présentation École</h3>
+                <div class="video-container bg-gray-200">
+                    <iframe src="https://www.youtube.com/embed/lCrLfWDZgyw" title="École" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen></iframe>
+                </div>
             </div>
+        </div>
 
-            <div class="card">
+        <div class="text-center mt-12 md:mt-16">
+            <a href="https://www.youtube.com/@RealEstateDrone-f4e" target="_blank" rel="noopener noreferrer"
+                class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 md:py-4 md:px-10 rounded-lg text-lg md:text-xl shadow-md hover:shadow-lg transition-all duration-300 inline-flex items-center">
+                <i data-lucide="youtube" class="w-5 h-5 md:w-6 md:h-6 mr-2 md:mr-3"></i> Visitez ma chaîne YouTube @RealEstateDrone-f4e
+            </a>
+        </div>
+    </div>
+    <div class="text-center mt-10 md:mt-12 mb-8">
+        <a href="#contact" class="bg-yellow-500 hover:bg-yellow-600 text-white font-semibold py-3 px-6 rounded-lg text-base shadow-md hover:shadow-lg transition-all duration-300 inline-flex items-center group">
+            Discutons de votre Projet
+            <i data-lucide="arrow-right-circle" class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform"></i>
+        </a>
+    </div>
+</section>
 
-                <i data-lucide="map-pin" class="service-icon w-12 h-12 md:w-14 md:h-14"></i>
-
-                <h3 class="text-xl md:text-2xl text-gray-800">Valorisation de l'Environnement</h3>
-                <p>Mise en lumière de l'environnement direct : jardin, quartier, accès et points d'intérêt, pour une présentation complète des atouts extérieurs.</p>
-
+<section id="contact" class="py-16 md:py-20 bg-slate-100">
+    <div class="container mx-auto px-4 md:px-6">
+        <div class="flex items-center justify-center mb-8">
+            <i data-lucide="message-circle" class="w-10 h-10 text-yellow-500 mr-3"></i>
+            <h2 class="section-title mb-0">Contactez-moi</h2>
+        </div>
+        <div class="bg-white rounded-xl p-6 md:p-8 shadow-lg max-w-3xl mx-auto mb-12 text-center">
+            <h3 class="text-2xl md:text-3xl font-semibold text-yellow-600 mb-4">
+                Prêt à donner une nouvelle dimension à vos biens ?
+            </h3>
+            <p class="text-xl md:text-2xl text-gray-700 font-medium">
+                Parlons de votre projet !
+            </p>
+        </div>
+        <div class="max-w-2xl mx-auto bg-white p-8 md:p-10 rounded-xl shadow-xl">
+            <form action="https://formspree.io/f/xeogvyer" method="POST" class="animate-fade-in">
+                <div class="mb-4 md:mb-5">
+                    <label for="name" class="block text-gray-700 font-medium mb-2">Nom complet</label>
+                    <input type="text" id="name" name="name" required 
+                           class="w-full px-4 py-2 md:py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                           aria-label="Votre nom complet">
+                </div>
+                <div class="mb-4 md:mb-5">
+                    <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
+                    <input type="email" id="email" name="email" required 
+                           class="w-full px-4 py-2 md:py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                           aria-label="Votre adresse email">
+                </div>
+                <div class="mb-4 md:mb-5">
+                    <label for="phone" class="block text-gray-700 font-medium mb-2">Téléphone (Optionnel)</label>
+                    <input type="tel" id="phone" name="phone" 
+                           class="w-full px-4 py-2 md:py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                           aria-label="Votre numéro de téléphone (optionnel)">
+                </div>
+                <div class="mb-5 md:mb-6">
+                    <label for="message" class="block text-gray-700 font-medium mb-2">Votre message</label>
+                    <textarea id="message" name="message" rows="5" required 
+                              class="w-full px-4 py-2 md:py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                              aria-label="Votre message"></textarea>
+                </div>
+                <div class="text-center"><button type="submit" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-3 px-8 md:py-4 md:px-10 rounded-lg text-lg md:text-xl shadow-md hover:shadow-lg transition-all duration-300">Envoyer le message</button></div>
+            </form>
+            <div class="mt-10 md:mt-12 text-center">
+                <p class="text-base md:text-lg font-medium mb-2 md:mb-3">Ou contactez-moi directement :</p>
+                <p class="text-base md:text-lg mb-1">Thibault Wislez</p>
+                <p class="text-base md:text-lg mb-1">Email : <a href="mailto:drones.realestate.liege@gmail.com" class="text-yellow-600 hover:underline">drones.realestate.liege@gmail.com</a></p>
+                <p class="text-base md:text-lg mb-1">Tél : <a href="tel:0471830636" class="text-yellow-600 hover:underline">0471 83 06 36</a></p>
+                <p class="text-base md:text-lg">Adresse : Vieille Ruelle 31, 4347 Roloux, Belgique</p>
             </div>
+        </div>
+    </div>
+</section>
 
-            <div class="card">
+<section id="a-venir" class="py-16 md:py-20 bg-white">
+    <div class="container mx-auto px-4 md:px-6">
+        <div class="flex items-center justify-center mb-8">
+            <i data-lucide="rocket" class="w-10 h-10 text-yellow-500 mr-3"></i>
+            <h2 class="section-title mb-0">À Venir : Innovations et Perspectives Futures</h2>
+        </div>
 
-                <i data-lucide="shield-
+        <!-- DJI Mavic 4 Pro -->
+        <div class="bg-white rounded-xl p-8 shadow-lg max-w-4xl mx-auto mb-12">
+            <div class="flex items-center mb-6">
+                <i data-lucide="drone" class="w-8 h-8 text-yellow-500 mr-3"></i>
+                <h3 class="text-2xl font-semibold text-gray-800">DJI Mavic 4 Pro : La Révolution 6K pour les Créateurs</h3>
+            </div>
+            <div class="space-y-6">
+                <div class="video-container bg-gray-200 mb-8">
+                    <iframe src="https://www.youtube.com/embed/BNEmDcQr6hk" 
+                            title="DJI Mavic 4 Pro Official Video" 
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen></iframe>
+                </div>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <i data-lucide="camera" class="w-6 h-6 text-yellow-500 mr-2 mt-1 flex-shrink-0"></i>
+                            <p class="text-gray-700">Caméra Hasselblad 100 MP avec capteur 4/3 CMOS, capable de filmer en 6K à 60 fps HDR et de capturer des images fixes de 100 MP</p>
+                        </div>
+                        <div class="flex items-start">
+                            <i data-lucide="refresh-ccw" class="w-6 h-6 text-yellow-500 mr-2 mt-1 flex-shrink-0"></i>
+                            <p class="text-gray-700">Gimbal Infinity à 360°, permettant des mouvements de caméra innovants, y compris des prises de vue verticales et des rotations complètes</p>
+                        </div>
+                        <div class="flex items-start">
+                            <i data-lucide="battery-charging" class="w-6 h-6 text-yellow-500 mr-2 mt-1 flex-shrink-0"></i>
+                            <p class="text-gray-700">Autonomie de vol de 51 minutes grâce à une batterie de 95 Wh</p>
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <i data-lucide="wifi" class="w-6 h-6 text-yellow-500 mr-2 mt-1 flex-shrink-0"></i>
+                            <p class="text-gray-700">Système de transmission OcuSync O4+ avec une portée de 30 km</p>
+                        </div>
+                        <div class="flex items-start">
+                            <i data-lucide="video" class="w-6 h-6 text-yellow-500 mr-2 mt-1 flex-shrink-0"></i>
+                            <p class="text-gray-700">Triple caméra avec deux téléobjectifs (70 mm et 168 mm) pour une flexibilité accrue</p>
+                        </div>
+                        <div class="flex items-start">
+                            <i data-lucide="euro" class="w-6 h-6 text-yellow-500 mr-2 mt-1 flex-shrink-0"></i>
+                            <p class="text-gray-700">Disponible en Europe à partir de 2 099 €, compatible avec la nouvelle radiocommande RC Pro 2</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Imagerie Thermique -->
+        <div class="bg-slate-50 rounded-xl p-8 shadow-lg max-w-4xl mx-auto">
+            <div class="flex items-center mb-6">
+                <i data-lucide="thermometer" class="w-8 h-8 text-red-500 mr-3"></i>
+                <h3 class="text-2xl font-semibold text-gray-800">L'Imagerie Thermique par Drone : Un Atout Stratégique</h3>
+            </div>
+            <div class="space-y-6">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-white rounded-lg p-6 shadow-md">
+                        <div class="flex items-center mb-4">
+                            <i data-lucide="scan" class="w-6 h-6 text-blue-500 mr-2"></i>
+                            <h4 class="text-lg font-semibold text-gray-800">DJI Mavic 3 Thermal (M3T)</h4>
+                        </div>
+                        <p class="text-gray-700 mb-4">Solution intégrée avec caméra thermique radiométrique et caméra visuelle, idéale pour :</p>
+                        <ul class="space-y-2">
+                            <li class="flex items-start">
+                                <i data-lucide="check" class="w-5 h-5 text-green-500 mr-2 mt-1"></i>
+                                <span>Inspections d'infrastructures</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-lucide="check" class="w-5 h-5 text-green-500 mr-2 mt-1"></i>
+                                <span>Recherche et sauvetage</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-lucide="check" class="w-5 h-5 text-green-500 mr-2 mt-1"></i>
+                                <span>Agriculture de précision</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bg-white rounded-lg p-6 shadow-md">
+                        <div class="flex items-center mb-4">
+                            <i data-lucide="box" class="w-6 h-6 text-blue-500 mr-2"></i>
+                            <h4 class="text-lg font-semibold text-gray-800">Série DJI Matrice</h4>
+                        </div>
+                        <p class="text-gray-700 mb-4">Drones professionnels compatibles avec :</p>
+                        <ul class="space-y-2">
+                            <li class="flex items-start">
+                                <i data-lucide="check" class="w-5 h-5 text-green-500 mr-2 mt-1"></i>
+                                <span>Caméras Zenmuse H20T</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-lucide="check" class="w-5 h-5 text-green-500 mr-2 mt-1"></i>
+                                <span>Caméras Zenmuse XT2</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-lucide="check" class="w-5 h-5 text-green-500 mr-2 mt-1"></i>
+                                <span>Capteurs thermiques haute qualité</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="bg-yellow-50 rounded-lg p-6 border-l-4 border-yellow-500">
+                    <p class="text-gray-700">Pour des besoins spécifiques, il est également possible d'équiper certains drones DJI avec des caméras thermiques tierces, comme celles de FLIR, en utilisant des supports et des interfaces compatibles.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="bg-gray-800 text-white py-8 md:py-10">
+    <div class="container mx-auto px-4 md:px-6 text-center">
+        <p class="text-sm text-gray-400">&copy; <span id="currentYear"></span> Liège Real Estate Drones - Thibault Wislez. Tous droits réservés.</p>
+        <p class="text-xs text-gray-500 mt-2">Développé avec passion.</p>
+    </div>
+</footer>
+</div>
+</div>
+
+<script defer>
+    // Attendre que le DOM soit chargé
+    document.addEventListener('DOMContentLoaded', () => {
+        // Initialiser les icônes Lucide
+        if (window.lucide) {
+            lucide.createIcons();
+        }
+
+        // Gestion des transitions de page
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+        let currentSection = 'accueil';
+        let isAnimating = false;
+
+        function updateURL(sectionId) {
+            const url = new URL(window.location);
+            url.hash = sectionId;
+            history.pushState({}, '', url);
+        }
+
+        function showSection(sectionId, instant = false) {
+            if (isAnimating) return;
+            isAnimating = true;
+
+            const targetSection = document.getElementById(sectionId);
+            if (!targetSection) return;
+
+            // Mettre à jour la navigation
+            navLinks.forEach(link => {
+                const linkSection = link.getAttribute('href').substring(1);
+                link.classList.toggle('text-yellow-600', linkSection === sectionId);
+                link.classList.toggle('text-gray-600', linkSection !== sectionId);
+            });
+
+            // Cacher toutes les sections sauf la cible
+            sections.forEach(section => {
+                if (section.id !== sectionId) {
+                    section.classList.remove('active');
+                    section.style.visibility = 'hidden';
+                }
+            });
+
+            // Afficher la section cible
+            targetSection.classList.add('active');
+            targetSection.style.visibility = 'visible';
+            
+            // Scroll en haut de la page
+            window.scrollTo(0, 0);
+            
+            setTimeout(() => {
+                isAnimating = false;
+            }, 300);
+
+            currentSection = sectionId;
+            updateURL(sectionId);
+        }
+
+        // Gestion du header transparent/opaque au scroll
+        const header = document.querySelector('header');
+        let lastScroll = 0;
+        
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll <= 0) {
+                header.classList.remove('shadow-lg');
+                header.classList.add('bg-white/95');
+            } else {
+                header.classList.add('shadow-lg');
+                header.classList.add('bg-white');
+                header.classList.remove('bg-white/95');
+            }
+            
+            lastScroll = currentScroll;
+        });
+
+        // Animation des sections au scroll
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observer les sections principales
+        document.querySelectorAll('section > div').forEach(section => {
+            section.style.opacity = '0';
+            observer.observe(section);
+        });
+
+        // Navigation avec transitions
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', e => {
+                e.preventDefault();
+                const sectionId = anchor.getAttribute('href').substring(1);
+                showSection(sectionId);
+            });
+        });
+
+        // Gestion de l'historique de navigation
+        window.addEventListener('popstate', () => {
+            const sectionId = window.location.hash.substring(1) || 'accueil';
+            showSection(sectionId, true);
+        });
+
+        // Initialisation de la première section
+        const initialSection = window.location.hash.substring(1) || 'accueil';
+        showSection(initialSection, true);
+
+        // Mise à jour de l'année dans le footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    });
+</script>
+
+</body>
+</html>
