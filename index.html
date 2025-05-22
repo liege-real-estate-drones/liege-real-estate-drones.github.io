@@ -310,6 +310,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Scroll en haut de la page
                 window.scrollTo(0, 0);
                 
+                // Re-initialize Lucide icons after section is made visible
+                if (window.lucide && typeof window.lucide.createIcons === 'function') {
+                    lucide.createIcons();
+                    console.log(`Lucide icons re-initialized specifically for section: ${sectionId}`);
+                }
+                
                 // Clear animation flag after transition (adjust timeout if needed)
                 setTimeout(() => {
                     isAnimating = false;
