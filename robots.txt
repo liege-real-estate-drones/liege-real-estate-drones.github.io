@@ -1,2 +1,3 @@
 User-agent: *
 Allow: /
+Sitemap: https://liege-real-estate-drones.github.io/sitemap.xml
